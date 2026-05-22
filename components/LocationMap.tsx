@@ -8,18 +8,41 @@ interface LocationMapProps {
   zoom?: number;
 }
 
+interface MapboxGL {
+  accessToken: string;
+  Map: new (options: Record<string, unknown>) => MapInstance;
+  Marker: new (element?: HTMLElement) => MarkerInstance;
+  NavigationControl: new () => NavigationControlInstance;
+}
+
+interface MapInstance {
+  on: (event: string, callback: () => void) => void;
+  setPaintProperty: (layer: string, property: string, value: string) => void;
+  addControl: (control: NavigationControlInstance, position: string) => void;
+  remove: () => void;
+}
+
+interface NavigationControlInstance {
+  // Mapbox NavigationControl instance
+}
+
+interface MarkerInstance {
+  setLngLat: (coords: [number, number]) => MarkerInstance;
+  addTo: (map: MapInstance) => MarkerInstance;
+}
+
 export default function LocationMap({ 
   latitude = 14.7502, // Proddatur coordinates
   longitude = 78.5482,
   zoom = 15 
 }: LocationMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<any>(null);
+  const map = useRef<MapInstance | null>(null);
 
   useEffect(() => {
     // Only initialize if mapbox is available
-    if (typeof window !== 'undefined' && (window as any).mapboxgl && mapContainer.current && !map.current) {
-      const mapboxgl = (window as any).mapboxgl;
+    if (typeof window !== 'undefined' && (window as { mapboxgl?: MapboxGL }).mapboxgl && mapContainer.current && !map.current) {
+      const mapboxgl = (window as { mapboxgl: MapboxGL }).mapboxgl;
       mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
 
       map.current = new mapboxgl.Map({
