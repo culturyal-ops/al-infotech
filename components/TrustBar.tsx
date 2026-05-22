@@ -73,17 +73,25 @@ export default function TrustBar() {
   ];
 
   return (
-    <section className="bg-green py-12 md:py-16">
+    <section className="bg-green py-16 md:py-20">
       <div className="container-custom">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <div key={index} className="relative">
               <StatCounter {...stat} />
               {index < stats.length - 1 && (
-                <div
-                  className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-16"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.2)' }}
-                />
+                <>
+                  <div
+                    className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-20"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
+                  />
+                  {index === 1 && (
+                    <div
+                      className="md:hidden absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] w-20"
+                      style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
+                    />
+                  )}
+                </>
               )}
             </div>
           ))}

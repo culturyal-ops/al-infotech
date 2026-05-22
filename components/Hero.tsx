@@ -37,8 +37,8 @@ export default function Hero() {
         className="absolute inset-0"
       >
         <Image
-          src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=2400"
-          alt="Kaaba at golden hour"
+          src="https://images.pexels.com/photos/5255233/pexels-photo-5255233.jpeg?auto=compress&cs=tinysrgb&w=2400"
+          alt="Masjid al-Haram Mecca"
           fill
           priority
           className="object-cover"
@@ -49,7 +49,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, rgba(26,58,42,0.75) 0%, rgba(26,58,42,0.4) 50%, rgba(26,58,42,0.6) 100%)',
+              'linear-gradient(to right, rgba(13,12,10,0.85) 0%, rgba(13,12,10,0.6) 50%, rgba(13,12,10,0.75) 100%)',
           }}
         />
       </motion.div>
@@ -74,16 +74,16 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               variants={itemVariants}
-              className="font-playfair font-bold text-white mb-6"
+              className="font-playfair font-bold text-white mb-8 leading-tight"
               style={{
-                fontSize: 'clamp(48px, 7vw, 96px)',
-                lineHeight: '1.1',
+                fontSize: 'clamp(42px, 6vw, 84px)',
+                lineHeight: '1.15',
                 letterSpacing: '-0.02em',
               }}
             >
               Your Journey of a Lifetime,
               <br />
-              Planned to Perfection.
+              <span className="text-gold-light">Planned to Perfection.</span>
             </motion.h1>
 
             {/* Subtext */}
@@ -102,16 +102,10 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-wrap gap-4"
             >
-              <a
-                href="#umrah"
-                className="bg-white text-green font-marcellus tracking-[0.2em] uppercase text-[13px] px-8 py-[14px] rounded-sm hover:bg-bg transition-all duration-300"
-              >
+              <a href="#umrah" className="btn-primary">
                 EXPLORE UMRAH
               </a>
-              <a
-                href="#tours"
-                className="bg-transparent border border-white text-white font-marcellus tracking-[0.2em] uppercase text-[13px] px-8 py-[14px] rounded-sm hover:bg-white hover:text-green transition-all duration-300"
-              >
+              <a href="#tours" className="btn-secondary">
                 VIEW TOURS
               </a>
             </motion.div>

@@ -45,7 +45,7 @@ export default function ServicesSplit() {
           >
             <div className="relative h-[300px] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=800"
+                src="https://images.pexels.com/photos/5255233/pexels-photo-5255233.jpeg?auto=compress&cs=tinysrgb&w=1200"
                 alt="Sacred Journeys - Umrah Packages"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -84,7 +84,7 @@ export default function ServicesSplit() {
           >
             <div className="relative h-[300px] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800"
+                src="https://images.pexels.com/photos/1603650/pexels-photo-1603650.jpeg?auto=compress&cs=tinysrgb&w=1200"
                 alt="Discover India - Tour Packages"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"

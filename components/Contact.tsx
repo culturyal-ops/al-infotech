@@ -150,7 +150,7 @@ export default function Contact() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <div className="bg-white rounded p-10 shadow-card">
+            <div className="bg-white rounded-lg p-8 md:p-10 shadow-card-hover">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name">Name</label>

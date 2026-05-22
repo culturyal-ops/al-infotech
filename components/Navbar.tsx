@@ -40,29 +40,25 @@ export default function Navbar() {
           <div className="flex items-center justify-between py-6">
             {/* Logo */}
             <div className="flex flex-col">
-              <span className="font-playfair text-2xl font-semibold text-green">
+              <span className="font-playfair text-xl md:text-2xl font-semibold text-green leading-tight">
                 AL-INFOTECH
               </span>
-              <span className="font-lato text-[11px] text-text-muted tracking-wide">
-                Tours and Travels
+              <span className="font-lato text-[10px] text-text-muted tracking-wider uppercase">
+                Tours & Travels
               </span>
             </div>
 
             {/* Desktop Nav Links */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6">
               {navLinks.map((link, index) => (
-                <span key={index}>
-                  <a
-                    href={link.href}
-                    className="nav-link text-text-muted hover:text-green relative group transition-colors duration-300"
-                  >
-                    {link.label}
-                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300 origin-left" />
-                  </a>
-                  {index < navLinks.length - 1 && (
-                    <span className="inline-block mx-4 text-border-gold">·</span>
-                  )}
-                </span>
+                <a
+                  key={index}
+                  href={link.href}
+                  className="nav-link text-text-muted hover:text-green relative group transition-colors duration-300"
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300 origin-left" />
+                </a>
               ))}
             </div>
 
