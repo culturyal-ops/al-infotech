@@ -20,7 +20,7 @@ export default function VisaProcess() {
 
           <div className="space-y-6 font-lato text-text leading-relaxed text-lg">
             <p>
-              The Umrah visa is issued exclusively through the Saudi government's NUSUK platform. Individual pilgrims cannot apply directly — the application must be submitted through a licensed Umrah operator registered with the Saudi Ministry of Hajj and Umrah.
+              The Umrah visa is issued exclusively through the Saudi government&apos;s NUSUK platform. Individual pilgrims cannot apply directly — the application must be submitted through a licensed Umrah operator registered with the Saudi Ministry of Hajj and Umrah.
             </p>
 
             <div className="card p-8 bg-gold-bg border-gold">

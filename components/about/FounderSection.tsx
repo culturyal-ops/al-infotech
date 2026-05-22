@@ -57,7 +57,7 @@ export default function FounderSection() {
               </p>
 
               <p>
-                His approach is personal. Every pilgrim group that travels under Al-Infotech receives direct access to him — not just an office number. Families from Proddatur, Kadapa, Kurnool, Nellore, and Hyderabad have trusted him with their parents' Umrah, their family's first trip to Kashmir, and everything in between.
+                His approach is personal. Every pilgrim group that travels under Al-Infotech receives direct access to him — not just an office number. Families from Proddatur, Kadapa, Kurnool, Nellore, and Hyderabad have trusted him with their parents&apos; Umrah, their family&apos;s first trip to Kashmir, and everything in between.
               </p>
 
               <p className="font-medium text-green">
