@@ -11,15 +11,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[var(--bg)] border-t border-[var(--gold)] border-opacity-30">
+    <footer className="bg-[var(--navy)] border-t-2 border-[var(--gold)]">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-8 items-center mb-8">
           {/* Logo */}
           <div>
-            <div className="text-[var(--gold)] font-['Cinzel'] text-xl tracking-wider mb-2">
+            <div className="text-[var(--gold)] font-['Cinzel'] text-xl tracking-wider mb-2 font-semibold">
               AL-INFOTECH
             </div>
-            <div className="text-[var(--muted)] text-sm">
+            <div className="text-gray-300 text-sm">
               Tours and Travels
             </div>
           </div>
@@ -30,7 +30,7 @@ export default function Footer() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[var(--cream)] font-['Cinzel'] text-[11px] tracking-widest hover:text-[var(--gold)] transition-colors"
+                className="text-white font-['Cinzel'] text-[11px] tracking-widest hover:text-[var(--gold)] transition-colors"
               >
                 {link.name}
               </Link>
@@ -39,7 +39,7 @@ export default function Footer() {
 
           {/* Tagline */}
           <div className="text-right">
-            <p className="text-[var(--muted)] text-sm italic">
+            <p className="text-gray-300 text-sm italic">
               Trusted by 500+ families across
               <br />
               AP & Telangana
@@ -48,8 +48,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[var(--border)] text-center">
-          <p className="text-[var(--muted)] text-sm">
+        <div className="pt-8 border-t border-[var(--gold)] border-opacity-30 text-center">
+          <p className="text-gray-300 text-sm">
             © 2025 Al-Infotech Tours and Travels. All rights reserved.
           </p>
         </div>

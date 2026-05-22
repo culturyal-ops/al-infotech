@@ -46,7 +46,7 @@ export default function ServicesSplit() {
             variants={cardVariants}
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
-            className="relative h-[500px] rounded-lg overflow-hidden border border-[var(--border)] group cursor-pointer"
+            className="relative h-[500px] rounded-lg overflow-hidden border-2 border-[var(--border)] group cursor-pointer shadow-lg"
           >
             <Image
               src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=1200"
@@ -54,18 +54,18 @@ export default function ServicesSplit() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-[rgba(13,12,10,0.7)] to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-[rgba(255,255,255,0.85)] to-transparent" />
             
             <motion.div
-              className="absolute inset-0 border border-[var(--gold-light)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              whileHover={{ boxShadow: '0 0 40px rgba(201, 168, 76, 0.1)' }}
+              className="absolute inset-0 border-2 border-[var(--gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              whileHover={{ boxShadow: '0 0 40px rgba(212, 175, 55, 0.3)' }}
             />
 
             <div className="absolute bottom-0 left-0 right-0 p-8">
-              <div className="inline-block px-3 py-1 bg-[var(--gold)] text-[var(--bg)] font-['Cinzel'] text-[10px] tracking-widest rounded-full mb-4">
+              <div className="inline-block px-3 py-1 bg-[var(--gold)] text-white font-['Cinzel'] text-[10px] tracking-widest rounded-full mb-4">
                 NUSUK CERTIFIED
               </div>
-              <h3 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl text-[var(--cream)] mb-4">
+              <h3 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl text-[var(--navy)] mb-4 font-semibold">
                 Sacred Journeys
               </h3>
               <p className="text-[var(--muted)] text-base leading-relaxed mb-6 max-w-md">
@@ -74,7 +74,7 @@ export default function ServicesSplit() {
               </p>
               <a
                 href="#umrah"
-                className="inline-flex items-center gap-2 text-[var(--gold)] font-['Cinzel'] text-sm tracking-wider group-hover:gap-4 transition-all"
+                className="inline-flex items-center gap-2 text-[var(--gold)] font-['Cinzel'] text-sm tracking-wider group-hover:gap-4 transition-all font-semibold"
               >
                 VIEW UMRAH PACKAGES
                 <span>→</span>
@@ -90,7 +90,7 @@ export default function ServicesSplit() {
             variants={cardVariants}
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
-            className="relative h-[500px] rounded-lg overflow-hidden border border-[var(--border)] group cursor-pointer"
+            className="relative h-[500px] rounded-lg overflow-hidden border-2 border-[var(--border)] group cursor-pointer shadow-lg"
           >
             <Image
               src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200"
@@ -98,15 +98,15 @@ export default function ServicesSplit() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-[rgba(13,12,10,0.7)] to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-[rgba(255,255,255,0.85)] to-transparent" />
             
             <motion.div
-              className="absolute inset-0 border border-[var(--gold-light)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              whileHover={{ boxShadow: '0 0 40px rgba(201, 168, 76, 0.1)' }}
+              className="absolute inset-0 border-2 border-[var(--gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              whileHover={{ boxShadow: '0 0 40px rgba(212, 175, 55, 0.3)' }}
             />
 
             <div className="absolute bottom-0 left-0 right-0 p-8">
-              <h3 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl text-[var(--cream)] mb-4">
+              <h3 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl text-[var(--navy)] mb-4 font-semibold">
                 Discover India
               </h3>
               <p className="text-[var(--muted)] text-base leading-relaxed mb-6 max-w-md">
@@ -115,7 +115,7 @@ export default function ServicesSplit() {
               </p>
               <a
                 href="#tours"
-                className="inline-flex items-center gap-2 text-[var(--gold)] font-['Cinzel'] text-sm tracking-wider group-hover:gap-4 transition-all"
+                className="inline-flex items-center gap-2 text-[var(--gold)] font-['Cinzel'] text-sm tracking-wider group-hover:gap-4 transition-all font-semibold"
               >
                 VIEW TOUR PACKAGES
                 <span>→</span>

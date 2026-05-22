@@ -44,10 +44,10 @@ export default function WhyUs() {
             WHY AL-INFOTECH
           </div>
           <h2
-            className="font-['Cormorant_Garamond'] text-[var(--cream)]"
+            className="font-['Cormorant_Garamond'] text-[var(--navy)]"
             style={{
               fontSize: 'clamp(36px, 5vw, 72px)',
-              fontWeight: 400,
+              fontWeight: 600,
               lineHeight: 1.2,
             }}
           >
@@ -71,10 +71,10 @@ export default function WhyUs() {
                 y: -10,
                 borderColor: 'var(--gold)',
               }}
-              className="bg-[var(--surface)] border border-[var(--border)] rounded-lg p-8 text-center hover:shadow-[0_0_40px_rgba(201,168,76,0.1)] transition-all duration-500"
+              className="bg-white border-2 border-[var(--border)] rounded-lg p-8 text-center hover:shadow-[0_0_40px_rgba(212,175,55,0.2)] transition-all duration-500"
             >
               <div className="text-5xl mb-6">{feature.icon}</div>
-              <h3 className="font-['Cinzel'] text-[var(--cream)] text-sm tracking-wider mb-3">
+              <h3 className="font-['Cinzel'] text-[var(--navy)] text-sm tracking-wider mb-3 font-semibold">
                 {feature.title}
               </h3>
               <p className="text-[var(--muted)] text-sm leading-relaxed">

@@ -59,10 +59,10 @@ export default function UmrahPackages() {
             UMRAH PACKAGES
           </div>
           <h2
-            className="font-['Cormorant_Garamond'] text-[var(--cream)]"
+            className="font-['Cormorant_Garamond'] text-[var(--navy)]"
             style={{
               fontSize: 'clamp(36px, 5vw, 72px)',
-              fontWeight: 400,
+              fontWeight: 600,
               lineHeight: 1.2,
             }}
           >
@@ -84,23 +84,23 @@ export default function UmrahPackages() {
               }}
               whileHover={{
                 scale: 1.02,
-                borderColor: 'var(--gold-light)',
+                borderColor: 'var(--gold)',
               }}
-              className="bg-[var(--bg)] border border-[var(--border)] rounded-lg p-8 hover:shadow-[0_0_40px_rgba(201,168,76,0.1)] transition-all duration-500"
+              className="bg-white border-2 border-[var(--border)] rounded-lg p-8 hover:shadow-[0_0_40px_rgba(212,175,55,0.2)] transition-all duration-500"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="font-['Cinzel'] text-[var(--cream)] text-sm tracking-widest mb-2">
+                  <h3 className="font-['Cinzel'] text-[var(--navy)] text-sm tracking-widest mb-2 font-semibold">
                     {pkg.title}
                   </h3>
-                  <div className="font-['Cormorant_Garamond'] text-[var(--gold)] text-5xl font-light">
+                  <div className="font-['Cormorant_Garamond'] text-[var(--gold)] text-5xl font-semibold">
                     {pkg.price}
                     <span className="text-xl text-[var(--muted)]">/person</span>
                   </div>
                 </div>
                 {pkg.badge && (
-                  <div className="px-3 py-1 bg-[var(--gold)] text-[var(--bg)] font-['Cinzel'] text-[10px] tracking-widest rounded-full">
+                  <div className="px-3 py-1 bg-[var(--gold)] text-white font-['Cinzel'] text-[10px] tracking-widest rounded-full">
                     {pkg.badge}
                   </div>
                 )}
@@ -110,29 +110,29 @@ export default function UmrahPackages() {
               <div className="space-y-2 mb-6 pb-6 border-b border-[var(--border)]">
                 <div className="flex justify-between text-sm">
                   <span className="text-[var(--muted)]">Duration:</span>
-                  <span className="text-[var(--cream)]">{pkg.duration}</span>
+                  <span className="text-[var(--navy)] font-medium">{pkg.duration}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-[var(--muted)]">Departure:</span>
-                  <span className="text-[var(--cream)]">{pkg.departure}</span>
+                  <span className="text-[var(--navy)] font-medium">{pkg.departure}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-[var(--muted)]">Hotel:</span>
-                  <span className="text-[var(--cream)] text-right">{pkg.hotel}</span>
+                  <span className="text-[var(--navy)] text-right font-medium">{pkg.hotel}</span>
                 </div>
               </div>
 
               {/* Inclusions */}
               <div className="space-y-3">
-                <div className="text-[var(--muted)] text-xs tracking-wider uppercase mb-4">
+                <div className="text-[var(--muted)] text-xs tracking-wider uppercase mb-4 font-semibold">
                   Inclusions
                 </div>
                 {pkg.inclusions.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <div className="w-4 h-4 rounded-full border border-[var(--gold)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-4 h-4 rounded-full border-2 border-[var(--gold)] flex items-center justify-center flex-shrink-0 mt-0.5">
                       <div className="w-2 h-2 rounded-full bg-[var(--gold)]" />
                     </div>
-                    <span className="text-[var(--cream)] text-sm leading-relaxed">
+                    <span className="text-[var(--navy)] text-sm leading-relaxed">
                       {item}
                     </span>
                   </div>

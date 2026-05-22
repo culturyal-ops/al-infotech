@@ -43,11 +43,11 @@ export default function Hero() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(13,12,10,0.5)] to-[rgba(13,12,10,0.85)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(255,255,255,0.7)] to-[rgba(255,255,255,0.9)]" />
       </motion.div>
 
       {/* Gold glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--gold)] opacity-5 blur-[120px] rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--gold)] opacity-10 blur-[120px] rounded-full" />
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6">
@@ -105,10 +105,10 @@ export default function Hero() {
           >
             <motion.a
               href="#umrah"
-              className="px-8 py-4 bg-[var(--gold)] text-[var(--bg)] font-['Cinzel'] text-sm tracking-widest rounded-full"
+              className="px-8 py-4 bg-[var(--gold)] text-white font-['Cinzel'] text-sm tracking-widest rounded-full"
               whileHover={{
                 scale: 1.02,
-                boxShadow: '0 0 40px rgba(201, 168, 76, 0.4)',
+                boxShadow: '0 0 40px rgba(212, 175, 55, 0.4)',
               }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.3 }}
@@ -117,7 +117,7 @@ export default function Hero() {
             </motion.a>
             <motion.a
               href="#tours"
-              className="px-8 py-4 border border-[var(--cream)] text-[var(--cream)] font-['Cinzel'] text-sm tracking-widest rounded-full"
+              className="px-8 py-4 border-2 border-[var(--navy)] text-[var(--navy)] font-['Cinzel'] text-sm tracking-widest rounded-full"
               whileHover={{
                 scale: 1.02,
                 borderColor: 'var(--gold)',

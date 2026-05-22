@@ -48,10 +48,10 @@ export default function Contact() {
             GET IN TOUCH
           </div>
           <h2
-            className="font-['Cormorant_Garamond'] text-[var(--cream)]"
+            className="font-['Cormorant_Garamond'] text-[var(--navy)]"
             style={{
               fontSize: 'clamp(36px, 5vw, 72px)',
-              fontWeight: 400,
+              fontWeight: 600,
               lineHeight: 1.2,
             }}
           >
@@ -68,10 +68,10 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="font-['Cinzel'] text-[var(--gold)] text-sm tracking-wider mb-3">
+              <h3 className="font-['Cinzel'] text-[var(--gold)] text-sm tracking-wider mb-3 font-semibold">
                 ADDRESS
               </h3>
-              <p className="text-[var(--cream)] leading-relaxed">
+              <p className="text-[var(--navy)] leading-relaxed">
                 Shop No. 24, 1st Floor, Nandini Cloth Market,
                 <br />
                 Proddatur, Kadapa, Andhra Pradesh 516360
@@ -79,25 +79,25 @@ export default function Contact() {
             </div>
 
             <div>
-              <h3 className="font-['Cinzel'] text-[var(--gold)] text-sm tracking-wider mb-3">
+              <h3 className="font-['Cinzel'] text-[var(--gold)] text-sm tracking-wider mb-3 font-semibold">
                 PHONE
               </h3>
               <div className="space-y-2">
                 <a
                   href="tel:+918919990806"
-                  className="block text-[var(--cream)] hover:text-[var(--gold)] transition-colors"
+                  className="block text-[var(--navy)] hover:text-[var(--gold)] transition-colors"
                 >
                   +91 8919990806
                 </a>
                 <a
                   href="tel:+919494455736"
-                  className="block text-[var(--cream)] hover:text-[var(--gold)] transition-colors"
+                  className="block text-[var(--navy)] hover:text-[var(--gold)] transition-colors"
                 >
                   +91 9494455736
                 </a>
                 <a
                   href="tel:+919398327853"
-                  className="block text-[var(--cream)] hover:text-[var(--gold)] transition-colors"
+                  className="block text-[var(--navy)] hover:text-[var(--gold)] transition-colors"
                 >
                   +91 9398327853
                 </a>
@@ -105,19 +105,19 @@ export default function Contact() {
             </div>
 
             <div>
-              <h3 className="font-['Cinzel'] text-[var(--gold)] text-sm tracking-wider mb-3">
+              <h3 className="font-['Cinzel'] text-[var(--gold)] text-sm tracking-wider mb-3 font-semibold">
                 EMAIL
               </h3>
               <a
                 href="mailto:alinfotechtours@gmail.com"
-                className="text-[var(--cream)] hover:text-[var(--gold)] transition-colors"
+                className="text-[var(--navy)] hover:text-[var(--gold)] transition-colors"
               >
                 alinfotechtours@gmail.com
               </a>
             </div>
 
             <div>
-              <h3 className="font-['Cinzel'] text-[var(--gold)] text-sm tracking-wider mb-4">
+              <h3 className="font-['Cinzel'] text-[var(--gold)] text-sm tracking-wider mb-4 font-semibold">
                 FOLLOW US
               </h3>
               <div className="flex gap-4">
@@ -125,7 +125,7 @@ export default function Contact() {
                   <motion.a
                     key={social}
                     href="#"
-                    className="w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--bg)] transition-all"
+                    className="w-10 h-10 rounded-full border-2 border-[var(--border)] flex items-center justify-center text-[var(--gold)] hover:bg-[var(--gold)] hover:text-white transition-all"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -144,7 +144,7 @@ export default function Contact() {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="name" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block">
+                <Label htmlFor="name" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block font-semibold">
                   Name
                 </Label>
                 <Input
@@ -153,13 +153,13 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-[var(--bg)] border-[var(--border)] text-[var(--cream)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
+                  className="bg-white border-2 border-[var(--border)] text-[var(--navy)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="phone" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block">
+                  <Label htmlFor="phone" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block font-semibold">
                     Phone
                   </Label>
                   <Input
@@ -168,11 +168,11 @@ export default function Contact() {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="bg-[var(--bg)] border-[var(--border)] text-[var(--cream)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
+                    className="bg-white border-2 border-[var(--border)] text-[var(--navy)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="email" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block">
+                  <Label htmlFor="email" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block font-semibold">
                     Email
                   </Label>
                   <Input
@@ -181,18 +181,18 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-[var(--bg)] border-[var(--border)] text-[var(--cream)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
+                    className="bg-white border-2 border-[var(--border)] text-[var(--navy)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="package" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block">
+                  <Label htmlFor="package" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block font-semibold">
                     Package Interest
                   </Label>
                   <Select value={formData.package || undefined} onValueChange={(value) => setFormData({ ...formData, package: value || '' })}>
-                    <SelectTrigger className="bg-[var(--bg)] border-[var(--border)] text-[var(--cream)]">
+                    <SelectTrigger className="bg-white border-2 border-[var(--border)] text-[var(--navy)]">
                       <SelectValue placeholder="Select package" />
                     </SelectTrigger>
                     <SelectContent>
@@ -203,7 +203,7 @@ export default function Contact() {
                   </Select>
                 </div>
                 <div>
-                  <Label htmlFor="month" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block">
+                  <Label htmlFor="month" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block font-semibold">
                     Travel Month
                   </Label>
                   <Input
@@ -212,13 +212,13 @@ export default function Contact() {
                     placeholder="e.g., June 2025"
                     value={formData.month}
                     onChange={(e) => setFormData({ ...formData, month: e.target.value })}
-                    className="bg-[var(--bg)] border-[var(--border)] text-[var(--cream)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
+                    className="bg-white border-2 border-[var(--border)] text-[var(--navy)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
                   />
                 </div>
               </div>
 
               <div>
-                <Label htmlFor="message" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block">
+                <Label htmlFor="message" className="text-[var(--gold)] text-xs tracking-wider uppercase mb-2 block font-semibold">
                   Message
                 </Label>
                 <Textarea
@@ -226,14 +226,14 @@ export default function Contact() {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="bg-[var(--bg)] border-[var(--border)] text-[var(--cream)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
+                  className="bg-white border-2 border-[var(--border)] text-[var(--navy)] focus:border-[var(--gold)] focus:ring-[var(--gold)]"
                 />
               </div>
 
               <motion.button
                 type="submit"
-                className="w-full px-8 py-4 bg-[var(--gold)] text-[var(--bg)] font-['Cinzel'] text-sm tracking-wider rounded-full"
-                whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(201, 168, 76, 0.4)' }}
+                className="w-full px-8 py-4 bg-[var(--gold)] text-white font-['Cinzel'] text-sm tracking-wider rounded-full"
+                whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(212, 175, 55, 0.4)' }}
                 whileTap={{ scale: 0.98 }}
               >
                 SUBMIT ENQUIRY

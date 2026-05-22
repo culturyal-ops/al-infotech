@@ -43,11 +43,11 @@ function AnimatedStat({ end, suffix, label, delay }: StatProps) {
       transition={{ delay, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="text-center"
     >
-      <div className="font-['Cormorant_Garamond'] text-[var(--gold)] text-5xl md:text-6xl font-light mb-2">
+      <div className="font-['Cormorant_Garamond'] text-[var(--gold)] text-5xl md:text-6xl font-semibold mb-2">
         {count}
         {suffix}
       </div>
-      <div className="text-[var(--cream)] text-sm tracking-wide">{label}</div>
+      <div className="text-[var(--navy)] text-sm tracking-wide font-medium">{label}</div>
     </motion.div>
   );
 }
