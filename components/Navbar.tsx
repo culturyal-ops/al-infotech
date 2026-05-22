@@ -93,8 +93,13 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-green p-2"
+              className={`md:hidden p-2 z-50 transition-colors duration-300 ${
+                mobileMenuOpen ? 'text-green' : scrolled ? 'text-green' : 'text-white'
+              }`}
               aria-label="Toggle menu"
+              style={{
+                textShadow: !scrolled && !mobileMenuOpen ? '0 1px 8px rgba(0,0,0,0.5)' : 'none'
+              }}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -110,9 +115,9 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-bg z-40 md:hidden"
+            className="fixed inset-0 bg-bg z-40 md:hidden overflow-y-auto"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-8">
+            <div className="min-h-full flex flex-col items-center justify-center py-24 px-6">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={index}
@@ -120,19 +125,20 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 0.7,
-                    delay: index * 0.1,
+                    delay: index * 0.08,
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
+                  className="w-full text-center"
                 >
                   <a
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-playfair text-5xl text-green hover:text-gold transition-colors duration-300"
+                    className="font-playfair text-3xl sm:text-4xl text-green hover:text-gold transition-colors duration-300 block py-4"
                   >
                     {link.label}
                   </a>
                   {index < navLinks.length - 1 && (
-                    <div className="w-full h-[1px] bg-border-gold mt-8" />
+                    <div className="w-20 h-[1px] bg-border-gold mx-auto my-2" />
                   )}
                 </motion.div>
               ))}
@@ -141,13 +147,13 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: navLinks.length * 0.1,
+                  delay: navLinks.length * 0.08,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
-                className="mt-8"
+                className="mt-8 mb-4"
               >
                 <a
-                  href="#contact"
+                  href="/#contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className="btn-primary"
                 >
