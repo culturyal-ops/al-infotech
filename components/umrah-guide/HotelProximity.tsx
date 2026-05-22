@@ -58,7 +58,7 @@ export default function HotelProximity() {
             </div>
 
             <p className="font-cormorant italic text-2xl text-green text-center py-8">
-              Discuss your group's physical needs with us honestly. We will recommend the right package for your situation.
+              Discuss your group&apos;s physical needs with us honestly. We will recommend the right package for your situation.
             </p>
 
             <div className="text-center mt-12">

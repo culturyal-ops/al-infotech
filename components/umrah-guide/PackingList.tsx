@@ -15,7 +15,7 @@ export default function PackingList() {
     },
     {
       category: 'Medications',
-      items: ['All personal medications in original packaging', 'Doctor\'s prescription', 'Bring enough for full duration plus extra'],
+      items: ['All personal medications in original packaging', 'Doctor&apos;s prescription', 'Bring enough for full duration plus extra'],
     },
     {
       category: 'Documents',
