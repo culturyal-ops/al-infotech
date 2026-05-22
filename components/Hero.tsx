@@ -29,11 +29,11 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image with Parallax */}
+      {/* Background Image */}
       <motion.div
-        initial={{ scale: 1.1 }}
+        initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="absolute inset-0"
       >
         <Image
@@ -44,84 +44,89 @@ export default function Hero() {
           className="object-cover"
           quality={90}
         />
-        {/* Overlay */}
+        {/* Rich Gradient Overlay */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to right, rgba(13,12,10,0.85) 0%, rgba(13,12,10,0.6) 50%, rgba(13,12,10,0.75) 100%)',
+              'linear-gradient(to right, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.35) 65%, rgba(10,10,10,0.65) 100%)',
           }}
         />
       </motion.div>
 
-      {/* Content */}
-      <div className="relative h-full flex items-center">
-        <div className="container-custom">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="max-w-[680px]"
-          >
-            {/* Eyebrow */}
-            <motion.div variants={itemVariants} className="mb-6">
-              <p className="eyebrow text-gold-light">
-                TRUSTED SINCE 2010 · NUSUK CERTIFIED
-              </p>
-              <div className="w-[60px] h-[1px] bg-gold-light mt-4" />
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              variants={itemVariants}
-              className="font-playfair font-bold text-white mb-8 leading-tight"
-              style={{
-                fontSize: 'clamp(42px, 6vw, 84px)',
-                lineHeight: '1.15',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              Your Journey of a Lifetime,
-              <br />
-              <span className="text-gold-light">Planned to Perfection.</span>
-            </motion.h1>
-
-            {/* Subtext */}
-            <motion.p
-              variants={itemVariants}
-              className="font-lato font-light text-[17px] leading-relaxed mb-10"
-              style={{ color: 'rgba(255,255,255,0.85)' }}
-            >
-              First licensed Umrah operator in Andhra Pradesh & Telangana.
-              <br />
-              Handcrafted packages for pilgrims and travelers.
-            </motion.p>
-
-            {/* CTAs */}
+      {/* Content Grid */}
+      <div className="relative h-full">
+        <div className="container-custom h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full items-center">
+            {/* Left Column - Content */}
             <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap gap-4"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="lg:col-span-7 max-w-[820px]"
             >
-              <a href="#umrah" className="btn-primary">
-                EXPLORE UMRAH
-              </a>
-              <a href="#tours" className="btn-secondary">
-                VIEW TOURS
-              </a>
+              {/* Eyebrow */}
+              <motion.div variants={itemVariants} className="mb-8">
+                <p className="eyebrow text-gold-light tracking-[0.3em]">
+                  TRUSTED SINCE 2010 · NUSUK CERTIFIED
+                </p>
+                <div className="w-[80px] h-[1px] bg-gold-light mt-5" />
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1
+                variants={itemVariants}
+                className="font-playfair font-bold text-white mb-8"
+                style={{
+                  fontSize: 'clamp(3.5rem, 7vw, 7rem)',
+                  lineHeight: '0.95',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                Your Journey of a Lifetime,{' '}
+                <span className="text-gold-light">Planned to Perfection.</span>
+              </motion.h1>
+
+              {/* Subtext */}
+              <motion.p
+                variants={itemVariants}
+                className="font-lato font-light text-[18px] leading-relaxed mb-12 max-w-[580px]"
+                style={{ color: 'rgba(255,255,255,0.88)' }}
+              >
+                First licensed Umrah operator in Andhra Pradesh & Telangana.
+                Handcrafted packages for pilgrims and travelers.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-wrap gap-5"
+              >
+                <a href="#umrah" className="btn-primary">
+                  EXPLORE UMRAH
+                </a>
+                <a href="#tours" className="btn-secondary">
+                  VIEW TOURS
+                </a>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Right Column - Intentional Space */}
+            <div className="hidden lg:block lg:col-span-5" />
+          </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Aligned to Grid */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.7 }}
-          className="absolute bottom-12 left-12 hidden md:flex items-center gap-4"
+          className="absolute bottom-16 left-0 hidden md:flex items-center gap-4"
+          style={{ paddingLeft: 'clamp(20px, 5vw, 80px)' }}
         >
-          <div className="w-[1px] h-[60px] bg-gold-light" />
+          <div className="w-[1px] h-[70px] bg-gold-light/60" />
           <p
-            className="font-marcellus text-[10px] text-white tracking-widest"
+            className="font-marcellus text-[10px] text-white/70 tracking-[0.3em]"
             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
           >
             SCROLL

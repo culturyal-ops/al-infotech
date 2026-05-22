@@ -32,29 +32,35 @@ export default function Navbar() {
         transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
           scrolled
-            ? 'bg-bg/95 backdrop-blur-xl border-b border-border shadow-sm'
+            ? 'bg-bg/98 backdrop-blur-xl border-b border-border shadow-sm'
             : 'bg-transparent'
         }`}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between py-6">
+          <div className="flex items-center justify-between py-5">
             {/* Logo */}
             <div className="flex flex-col">
-              <span className="font-playfair text-xl md:text-2xl font-semibold text-green leading-tight">
+              <span className={`font-playfair text-xl md:text-2xl font-semibold leading-tight transition-colors duration-300 ${
+                scrolled ? 'text-green' : 'text-white'
+              }`}>
                 AL-INFOTECH
               </span>
-              <span className="font-lato text-[10px] text-text-muted tracking-wider uppercase">
+              <span className={`font-lato text-[10px] tracking-[0.15em] uppercase transition-colors duration-300 ${
+                scrolled ? 'text-text-muted' : 'text-white/70'
+              }`}>
                 Tours & Travels
               </span>
             </div>
 
             {/* Desktop Nav Links */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-12">
               {navLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
-                  className="nav-link text-text-muted hover:text-green relative group transition-colors duration-300"
+                  className={`nav-link relative group transition-colors duration-300 ${
+                    scrolled ? 'text-text-muted hover:text-green' : 'text-white/88 hover:text-white'
+                  }`}
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300 origin-left" />

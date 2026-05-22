@@ -50,13 +50,13 @@ function StatCounter({ end, suffix, label, delay }: StatProps) {
       }}
       className="flex flex-col items-center text-center"
     >
-      <div className="font-playfair font-bold text-[52px] text-white leading-none mb-2">
+      <div className="font-playfair font-bold text-[56px] md:text-[64px] text-white leading-none mb-3">
         {count}
         {suffix}
       </div>
       <div
-        className="font-lato text-[13px] tracking-wider uppercase"
-        style={{ color: 'rgba(255,255,255,0.7)' }}
+        className="font-lato text-[12px] tracking-[0.15em] uppercase"
+        style={{ color: 'rgba(255,255,255,0.65)' }}
       >
         {label}
       </div>
@@ -73,22 +73,22 @@ export default function TrustBar() {
   ];
 
   return (
-    <section className="bg-green py-16 md:py-20">
+    <section className="bg-green py-20 md:py-24">
       <div className="container-custom">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
           {stats.map((stat, index) => (
             <div key={index} className="relative">
               <StatCounter {...stat} />
               {index < stats.length - 1 && (
                 <>
                   <div
-                    className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-20"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
+                    className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-24"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.12)' }}
                   />
                   {index === 1 && (
                     <div
-                      className="md:hidden absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] w-20"
-                      style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
+                      className="md:hidden absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] w-24"
+                      style={{ backgroundColor: 'rgba(255,255,255,0.12)' }}
                     />
                   )}
                 </>
