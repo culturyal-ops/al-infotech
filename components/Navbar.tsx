@@ -20,6 +20,7 @@ export default function Navbar() {
   const navLinks = [
     { label: 'UMRAH', href: '/#umrah' },
     { label: 'TOURS', href: '/#tours' },
+    { label: 'GALLERY', href: '/gallery' },
     { label: 'ABOUT', href: '/about' },
     { label: 'WHY US', href: '/why-us' },
     { label: 'UMRAH GUIDE', href: '/umrah-guide' },

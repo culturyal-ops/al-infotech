@@ -72,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${marcellus.variable} ${lato.variable}`}>
       <head>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet' />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}

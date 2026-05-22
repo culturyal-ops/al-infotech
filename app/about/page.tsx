@@ -3,6 +3,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AboutHero from '@/components/about/AboutHero';
 import FounderSection from '@/components/about/FounderSection';
+import TeamSection from '@/components/about/TeamSection';
+import LocationSection from '@/components/LocationSection';
 
 export const metadata: Metadata = {
   title: 'About Al-Infotech Tours and Travels | Shaik Shaiksha Valli | Proddatur',
@@ -16,6 +18,8 @@ export default function AboutPage() {
       <Navbar />
       <AboutHero />
       <FounderSection />
+      <TeamSection />
+      <LocationSection />
       <Footer />
     </main>
   );
