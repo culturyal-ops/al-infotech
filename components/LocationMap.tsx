@@ -12,18 +12,14 @@ interface MapboxGL {
   accessToken: string;
   Map: new (options: Record<string, unknown>) => MapInstance;
   Marker: new (element?: HTMLElement) => MarkerInstance;
-  NavigationControl: new () => NavigationControlInstance;
+  NavigationControl: new () => object;
 }
 
 interface MapInstance {
   on: (event: string, callback: () => void) => void;
   setPaintProperty: (layer: string, property: string, value: string) => void;
-  addControl: (control: NavigationControlInstance, position: string) => void;
+  addControl: (control: object, position: string) => void;
   remove: () => void;
-}
-
-interface NavigationControlInstance {
-  // Mapbox NavigationControl instance
 }
 
 interface MarkerInstance {
@@ -41,8 +37,8 @@ export default function LocationMap({
 
   useEffect(() => {
     // Only initialize if mapbox is available
-    if (typeof window !== 'undefined' && (window as { mapboxgl?: MapboxGL }).mapboxgl && mapContainer.current && !map.current) {
-      const mapboxgl = (window as { mapboxgl: MapboxGL }).mapboxgl;
+    if (typeof window !== 'undefined' && (window as unknown as { mapboxgl?: MapboxGL }).mapboxgl && mapContainer.current && !map.current) {
+      const mapboxgl = (window as unknown as { mapboxgl: MapboxGL }).mapboxgl;
       mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
 
       map.current = new mapboxgl.Map({
@@ -70,8 +66,10 @@ export default function LocationMap({
       // Apply custom styling after map loads
       map.current.on('load', () => {
         // Customize map colors to match design system
-        map.current.setPaintProperty('water', 'fill-color', '#E8F0EB');
-        map.current.setPaintProperty('land', 'background-color', '#FDFAF5');
+        if (map.current) {
+          map.current.setPaintProperty('water', 'fill-color', '#E8F0EB');
+          map.current.setPaintProperty('land', 'background-color', '#FDFAF5');
+        }
       });
 
       // Add navigation controls
