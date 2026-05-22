@@ -37,7 +37,7 @@ export default function Hero() {
         className="absolute inset-0"
       >
         <Image
-          src="https://images.pexels.com/photos/5255233/pexels-photo-5255233.jpeg?auto=compress&cs=tinysrgb&w=2400"
+          src="/images/hero-mecca.webp"
           alt="Masjid al-Haram Mecca"
           fill
           priority
