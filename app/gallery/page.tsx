@@ -1,3 +1,5 @@
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import GalleryHero from '@/components/gallery/GalleryHero';
 import GalleryGrid, { GalleryImage } from '@/components/gallery/GalleryGrid';
 import Contact from '@/components/Contact';
@@ -56,14 +58,18 @@ export const metadata = {
 
 export default function GalleryPage() {
   return (
-    <main>
-      <GalleryHero />
-      
-      <section className="py-12 md:py-16 bg-bg-section">
-        <GalleryGrid images={galleryImages} />
-      </section>
+    <>
+      <Navbar />
+      <main>
+        <GalleryHero />
+        
+        <section className="py-12 md:py-16 bg-bg-section">
+          <GalleryGrid images={galleryImages} />
+        </section>
 
-      <Contact />
-    </main>
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
