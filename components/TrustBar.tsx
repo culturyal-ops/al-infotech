@@ -68,7 +68,7 @@ export default function TrustBar() {
   const stats = [
     { end: 500, suffix: '+', label: 'Pilgrims Sent', delay: 0 },
     { end: 14, suffix: '+', label: 'Years Experience', delay: 0.1 },
-    { end: 3, suffix: '', label: 'States Served', delay: 0.2 },
+    { end: 24, suffix: '/7', label: 'Customer Support', delay: 0.2 },
     { end: 100, suffix: '%', label: 'Licensed & Authorized', delay: 0.3 },
   ];
 

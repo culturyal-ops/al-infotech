@@ -75,6 +75,13 @@ export default function Footer() {
               +91 89199 90806
             </a>
             <a
+              href="tel:+917896550806"
+              className="font-lato text-sm hover:text-gold-light transition-colors duration-300 block"
+              style={{ color: 'rgba(255,255,255,0.6)' }}
+            >
+              +91 78965 50806
+            </a>
+            <a
               href="mailto:alinfotechtours@gmail.com"
               className="font-lato text-sm hover:text-gold-light transition-colors duration-300 block"
               style={{ color: 'rgba(255,255,255,0.6)' }}

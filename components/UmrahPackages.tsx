@@ -18,13 +18,12 @@ export default function UmrahPackages() {
   };
 
   const budgetInclusions = [
-    'Visa & Insurance',
-    'Flights Included',
-    'Hotel Accommodation',
-    '3x Hyderabadi Buffet Daily',
+    'Visa Ticket with Insurance',
+    'Accommodation',
+    '3 Time Hyderabadi Buffet',
     'AC Transportation',
-    'Airport to Airport Transfer',
-    'Luggage + Shoulder Bag Free',
+    'Airport to Airport Service',
+    'Luggage and Shoulder Bag Free',
   ];
 
   const premiumInclusions = [
@@ -67,6 +66,18 @@ export default function UmrahPackages() {
           >
             <div className="h-2 bg-green-muted" />
             <div className="p-8">
+              <div className="flex flex-wrap gap-2 mb-4">
+                <div className="inline-block bg-green-muted text-green px-4 py-2 rounded-sm">
+                  <span className="font-marcellus text-[11px] tracking-widest uppercase">
+                    NUSUK CERTIFIED
+                  </span>
+                </div>
+                <div className="inline-block bg-gold-bg text-gold px-4 py-2 rounded-sm">
+                  <span className="font-marcellus text-[11px] tracking-widest uppercase">
+                    VIA FLIGHT
+                  </span>
+                </div>
+              </div>
               <p className="font-marcellus text-[11px] tracking-widest uppercase text-text-muted mb-4">
                 BUDGET PACKAGE
               </p>
@@ -77,7 +88,7 @@ export default function UmrahPackages() {
                 <span>Departure: June/July</span>
               </div>
               <p className="font-lato text-text-muted mb-6">
-                Hotel: Makkah 900m · Madina near Bilal Masjid
+                Hotel: Makkah 900 meters · Madina around Bilal Masjid
               </p>
               <div className="border-t border-border pt-6">
                 <p className="label-small text-green mb-4">INCLUSIONS</p>
