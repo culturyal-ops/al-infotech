@@ -28,9 +28,9 @@ interface MarkerInstance {
 }
 
 export default function LocationMap({ 
-  latitude = 14.7502, // Proddatur coordinates
-  longitude = 78.5482,
-  zoom = 15 
+  latitude = 14.750045, // AL-INFOTECH TOURS AND TRAVELS exact location
+  longitude = 78.55125,
+  zoom = 16 
 }: LocationMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<MapInstance | null>(null);
@@ -49,15 +49,25 @@ export default function LocationMap({
         interactive: true,
       });
 
-      // Custom marker
+      // Custom marker with brand colors
       const el = document.createElement('div');
       el.className = 'custom-marker';
-      el.style.width = '32px';
-      el.style.height = '32px';
+      el.style.width = '40px';
+      el.style.height = '40px';
       el.style.borderRadius = '50%';
       el.style.backgroundColor = '#1A3A2A';
-      el.style.border = '3px solid #B8960C';
-      el.style.boxShadow = '0 4px 12px rgba(26, 58, 42, 0.3)';
+      el.style.border = '4px solid #B8960C';
+      el.style.boxShadow = '0 6px 20px rgba(26, 58, 42, 0.4)';
+      el.style.cursor = 'pointer';
+      el.style.transition = 'transform 0.2s ease';
+      
+      // Add hover effect
+      el.addEventListener('mouseenter', () => {
+        el.style.transform = 'scale(1.1)';
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = 'scale(1)';
+      });
 
       new mapboxgl.Marker(el)
         .setLngLat([longitude, latitude])
@@ -84,7 +94,7 @@ export default function LocationMap({
   }, [latitude, longitude, zoom]);
 
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden" style={{ borderRadius: 'var(--radius-md)' }}>
+    <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-2xl shadow-lg border border-border">
       <div ref={mapContainer} className="w-full h-full" />
       
       {/* Fallback if Mapbox not loaded - show static map link */}
