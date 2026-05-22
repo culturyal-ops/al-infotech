@@ -40,14 +40,24 @@ export default function Navbar() {
           <div className="flex items-center justify-between py-5">
             {/* Logo */}
             <div className="flex flex-col">
-              <span className={`font-playfair text-xl md:text-2xl font-semibold leading-tight transition-colors duration-300 ${
-                scrolled ? 'text-green' : 'text-white'
-              }`}>
+              <span 
+                className={`font-playfair text-2xl md:text-3xl font-bold leading-tight transition-colors duration-300 ${
+                  scrolled ? 'text-green' : 'text-white'
+                }`}
+                style={{
+                  textShadow: scrolled ? 'none' : '0 2px 12px rgba(0,0,0,0.5)'
+                }}
+              >
                 AL-INFOTECH
               </span>
-              <span className={`font-lato text-[10px] tracking-[0.15em] uppercase transition-colors duration-300 ${
-                scrolled ? 'text-text-muted' : 'text-white/70'
-              }`}>
+              <span 
+                className={`font-lato text-[11px] tracking-[0.2em] uppercase font-medium transition-colors duration-300 ${
+                  scrolled ? 'text-text-muted' : 'text-white/90'
+                }`}
+                style={{
+                  textShadow: scrolled ? 'none' : '0 1px 8px rgba(0,0,0,0.4)'
+                }}
+              >
                 Tours & Travels
               </span>
             </div>
@@ -58,9 +68,12 @@ export default function Navbar() {
                 <a
                   key={index}
                   href={link.href}
-                  className={`nav-link relative group transition-colors duration-300 ${
-                    scrolled ? 'text-text-muted hover:text-green' : 'text-white/88 hover:text-white'
+                  className={`nav-link relative group transition-colors duration-300 font-medium ${
+                    scrolled ? 'text-text hover:text-green' : 'text-white hover:text-gold'
                   }`}
+                  style={{
+                    textShadow: scrolled ? 'none' : '0 1px 8px rgba(0,0,0,0.5)'
+                  }}
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300 origin-left" />
