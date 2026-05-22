@@ -4,10 +4,13 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   const navLinks = [
-    { label: 'Umrah Packages', href: '#umrah' },
-    { label: 'Tour Packages', href: '#tours' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Umrah Packages', href: '/#umrah' },
+    { label: 'Tour Packages', href: '/#tours' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Why Choose Us', href: '/why-us' },
+    { label: 'Umrah Guide', href: '/umrah-guide' },
+    { label: 'Proddatur Office', href: '/proddatur-travel-agency' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
   return (

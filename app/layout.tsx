@@ -38,6 +38,32 @@ export const metadata: Metadata = {
   keywords: ["Umrah packages", "Kashmir tours", "AL-INFOTECH", "Proddatur travel agency", "Andhra Pradesh Umrah", "NUSUK certified"],
 };
 
+// Schema.org JSON-LD for SEO
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Al-Infotech Tours and Travels",
+  "founder": {
+    "@type": "Person",
+    "name": "Shaik Shaiksha Valli"
+  },
+  "foundingDate": "2010",
+  "description": "First licensed Umrah operator in Andhra Pradesh and Telangana. Packages for Umrah pilgrims and domestic travelers.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Shop No. 24, 1st Floor, Nandini Cloth Market",
+    "addressLocality": "Proddatur",
+    "addressRegion": "Andhra Pradesh",
+    "postalCode": "516360",
+    "addressCountry": "IN"
+  },
+  "telephone": "+918919990806",
+  "email": "alinfotechtours@gmail.com",
+  "url": "https://alinfotech.vercel.app",
+  "areaServed": ["Andhra Pradesh", "Telangana", "Karnataka"],
+  "priceRange": "₹₹"
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,6 +71,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${marcellus.variable} ${lato.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      </head>
       <body>
         <SmoothScroll>
           {children}
