@@ -1,87 +1,80 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { Shield, Star, MapPin, Phone } from 'lucide-react';
 
 export default function WhyUs() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   const features = [
     {
-      icon: '🏛',
+      icon: Shield,
       title: 'Licensed & Authorized',
-      description: 'First Umrah operator in AP & Telangana',
+      description:
+        'First Umrah operator licensed in AP & Telangana under NUSUK',
     },
     {
-      icon: '⭐',
+      icon: Star,
       title: '5-Star Rated',
-      description: 'Consistently rated by 500+ happy clients',
+      description: 'Trusted by 500+ families across Andhra Pradesh & Telangana',
     },
     {
-      icon: '🕌',
-      title: 'Complete Umrah Services',
-      description: 'Visa, flights, hotels, ziyarat',
+      icon: MapPin,
+      title: 'End-to-End Service',
+      description: 'Visa, flights, hotels, ziyarat — everything handled for you',
     },
     {
-      icon: '📞',
+      icon: Phone,
       title: '24/7 Support',
-      description: 'Always reachable before, during, after travel',
+      description: 'Reachable before, during, and after your journey',
     },
   ];
 
   return (
-    <section ref={ref} className="py-24 md:py-32 px-6 bg-[var(--bg)]" id="about">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+    <section id="about" className="bg-gold-bg section-padding">
+      <div className="container-custom">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-16"
         >
-          <div className="font-['Cinzel'] text-[var(--gold)] text-xs tracking-[0.3em] uppercase mb-4">
-            WHY AL-INFOTECH
-          </div>
-          <h2
-            className="font-['Cormorant_Garamond'] text-[var(--navy)]"
-            style={{
-              fontSize: 'clamp(36px, 5vw, 72px)',
-              fontWeight: 600,
-              lineHeight: 1.2,
-            }}
-          >
-            The Most Trusted Name in Kadapa
-          </h2>
+          <p className="eyebrow mb-4">WHY AL-INFOTECH</p>
+          <h2 className="heading-section">The Most Trusted Name in Kadapa</h2>
         </motion.div>
 
-        {/* Feature Cards */}
-        <div className="grid md:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              whileHover={{
-                y: -10,
-                borderColor: 'var(--gold)',
-              }}
-              className="bg-white border-2 border-[var(--border)] rounded-lg p-8 text-center hover:shadow-[0_0_40px_rgba(212,175,55,0.2)] transition-all duration-500"
-            >
-              <div className="text-5xl mb-6">{feature.icon}</div>
-              <h3 className="font-['Cinzel'] text-[var(--navy)] text-sm tracking-wider mb-3 font-semibold">
-                {feature.title}
-              </h3>
-              <p className="text-[var(--muted)] text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{
+                  duration: 0.9,
+                  delay: index * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+                className="text-center relative"
+              >
+                <div className="flex justify-center mb-6">
+                  <Icon className="w-8 h-8 text-green" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-playfair font-medium text-xl text-green mb-3">
+                  {feature.title}
+                </h3>
+                <p className="font-lato text-text-muted leading-relaxed">
+                  {feature.description}
+                </p>
+                {index < features.length - 1 && (
+                  <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-24 bg-border" />
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,151 +1,144 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function KashmirPackage() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   const pricingOptions = [
-    { pax: 'Min 12 Pax', price: '₹7,400', vehicle: 'Tempo Traveller' },
-    { pax: 'Min 10 Pax', price: '₹7,800', vehicle: 'Tempo Traveller' },
-    { pax: 'Min 8 Pax', price: '₹8,200', vehicle: 'Innova Crysta' },
-    { pax: 'Min 6 Pax', price: '₹7,800', vehicle: 'Innova Crysta' },
-    { pax: 'Min 4 Pax', price: '₹8,700', vehicle: 'Innova' },
-    { pax: 'Min 2 Pax', price: '₹12,000', vehicle: 'Sedan' },
+    { pax: '12 PAX', price: '₹7,400', vehicle: 'Tempo Traveller' },
+    { pax: '10 PAX', price: '₹7,800', vehicle: 'Tempo Traveller' },
+    { pax: '8 PAX', price: '₹8,200', vehicle: 'Tempo Traveller' },
+    { pax: '6 PAX', price: '₹7,800', vehicle: 'Xylo / Innova' },
+    { pax: '4 PAX', price: '₹8,700', vehicle: 'Xylo / Innova' },
+    { pax: '2 PAX', price: '₹12,000', vehicle: 'Sedan' },
   ];
 
   const itinerary = [
-    { day: 'Day 1', title: 'Arrival Srinagar', desc: 'Dal Lake, Shikara ride, Mughal Gardens' },
-    { day: 'Day 2', title: 'Gulmarg', desc: 'Gondola ride, snow activities, meadows' },
-    { day: 'Day 3', title: 'Pahalgam', desc: 'Betaab Valley, Aru Valley, Lidder River' },
-    { day: 'Day 4', title: 'Sonamarg', desc: 'Thajiwas Glacier, pony rides, local markets' },
-    { day: 'Day 5', title: 'Departure', desc: 'Shopping, airport drop' },
+    {
+      day: 1,
+      title: 'Arrival in Srinagar',
+      description: 'Transfer to houseboat, Shikara ride, Dal Lake evening',
+    },
+    {
+      day: 2,
+      title: 'Srinagar Local Sightseeing',
+      description: 'Mughal Gardens, Shankaracharya Temple, local markets',
+    },
+    {
+      day: 3,
+      title: 'Gulmarg Excursion',
+      description: 'Gondola ride, snow activities, meadow exploration',
+    },
+    {
+      day: 4,
+      title: 'Pahalgam Day Trip',
+      description: 'Betaab Valley, Aru Valley, Lidder River views',
+    },
+    {
+      day: 5,
+      title: 'Departure',
+      description: 'Transfer to Srinagar airport with memories',
+    },
   ];
 
   return (
-    <section ref={ref} className="relative py-24 md:py-32 overflow-hidden bg-[var(--navy)]" id="tours">
-      {/* Background */}
-      <div className="absolute inset-0 opacity-20">
-        <Image
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2400"
-          alt="Kashmir landscape"
-          fill
-          className="object-cover"
-        />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+    <section id="tours" className="bg-bg-section section-padding">
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Left: Content */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <div className="font-['Cinzel'] text-[var(--gold)] text-xs tracking-[0.3em] uppercase mb-4">
-              FEATURED TOUR
-            </div>
-            <h2
-              className="font-['Cormorant_Garamond'] text-white mb-4"
-              style={{
-                fontSize: 'clamp(36px, 5vw, 72px)',
-                fontWeight: 600,
-                lineHeight: 1.2,
-              }}
-            >
-              4 Nights / 5 Days Kashmir
-            </h2>
-            <p className="text-[var(--gold-light)] text-xl mb-8 font-medium">
-              May to June departures. Heaven on Earth.
+            <p className="eyebrow mb-4">FEATURED TOUR</p>
+            <h2 className="heading-section mb-4">4 Nights / 5 Days Kashmir</h2>
+            <p className="font-cormorant italic text-xl text-text-muted mb-12">
+              Heaven on Earth. May to June departures.
             </p>
 
             {/* Itinerary Timeline */}
-            <div className="space-y-4">
+            <div className="space-y-8">
               {itinerary.map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-80px' }}
                   transition={{
-                    delay: 0.2 + index * 0.1,
-                    duration: 0.6,
-                    ease: [0.16, 1, 0.3, 1],
+                    duration: 0.7,
+                    delay: index * 0.1,
+                    ease: [0.25, 0.46, 0.45, 0.94],
                   }}
-                  className="flex gap-4 items-start"
+                  className="flex gap-6"
                 >
-                  <div className="w-12 h-12 rounded-full border-2 border-[var(--gold)] flex items-center justify-center flex-shrink-0 bg-white">
-                    <span className="text-[var(--gold)] font-['Cinzel'] text-xs font-semibold">
-                      {item.day.split(' ')[1]}
-                    </span>
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-green flex items-center justify-center text-white font-playfair font-semibold">
+                      {item.day}
+                    </div>
+                    {index < itinerary.length - 1 && (
+                      <div className="w-[1px] h-12 bg-border-gold mx-auto mt-2" />
+                    )}
                   </div>
-                  <div>
-                    <h4 className="text-white font-['Cinzel'] text-sm tracking-wider mb-1 font-semibold">
+                  <div className="flex-1 pb-4">
+                    <h4 className="font-playfair font-medium text-xl text-green mb-2">
                       {item.title}
                     </h4>
-                    <p className="text-gray-300 text-sm">{item.desc}</p>
+                    <p className="font-lato text-text-muted">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right Pricing Grid */}
+          {/* Right: Pricing Grid */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="grid grid-cols-2 gap-4"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            {pricingOptions.map((option, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{
-                  delay: 0.4 + index * 0.08,
-                  duration: 0.6,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  borderColor: 'var(--gold)',
-                }}
-                className="bg-white border-2 border-[var(--border)] rounded-lg p-6 hover:shadow-[0_0_40px_rgba(212,175,55,0.3)] transition-all duration-500"
-              >
-                <div className="text-[var(--muted)] text-xs tracking-wider uppercase mb-2 font-semibold">
-                  {option.pax}
-                </div>
-                <div className="font-['Cormorant_Garamond'] text-[var(--gold)] text-3xl font-semibold mb-2">
-                  {option.price}
-                  <span className="text-sm text-[var(--muted)]">/person</span>
-                </div>
-                <div className="text-[var(--navy)] text-xs font-medium">{option.vehicle}</div>
-              </motion.div>
-            ))}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {pricingOptions.map((option, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.3 + index * 0.05,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
+                  className="card p-6 text-center hover:border-border-gold transition-all duration-300"
+                >
+                  <p className="font-marcellus text-[11px] tracking-widest uppercase text-text-muted mb-3">
+                    MIN {option.pax}
+                  </p>
+                  <div className="font-playfair font-bold text-3xl text-gold mb-2">
+                    {option.price}
+                  </div>
+                  <p className="font-lato text-sm text-text-muted">per person</p>
+                  <div className="mt-4 pt-4 border-t border-border">
+                    <p className="font-lato text-xs text-text-muted">{option.vehicle}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.7, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="text-center"
+            >
+              <a href="#contact" className="btn-primary w-full block text-center">
+                BOOK KASHMIR PACKAGE
+              </a>
+            </motion.div>
           </motion.div>
         </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="mt-12 text-center"
-        >
-          <motion.a
-            href="https://wa.me/918919990806"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--gold)] text-white font-['Cinzel'] text-sm tracking-wider rounded-full"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212, 175, 55, 0.4)' }}
-            whileTap={{ scale: 0.98 }}
-          >
-            BOOK KASHMIR PACKAGE
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   );

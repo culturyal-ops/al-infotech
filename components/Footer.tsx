@@ -1,55 +1,89 @@
 'use client';
 
-import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   const navLinks = [
-    { name: 'UMRAH', href: '#umrah' },
-    { name: 'TOURS', href: '#tours' },
-    { name: 'ABOUT', href: '#about' },
-    { name: 'CONTACT', href: '#contact' },
+    { label: 'Umrah Packages', href: '#umrah' },
+    { label: 'Tour Packages', href: '#tours' },
+    { label: 'About Us', href: '#about' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
-    <footer className="bg-[var(--navy)] border-t-2 border-[var(--gold)]">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8 items-center mb-8">
-          {/* Logo */}
-          <div>
-            <div className="text-[var(--gold)] font-['Cinzel'] text-xl tracking-wider mb-2 font-semibold">
+    <footer className="bg-[#0F1F17] border-t-2 border-gold">
+      <div className="container-custom py-16">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
+          {/* Left: Logo & Tagline */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <h3 className="font-playfair text-2xl text-white mb-2">
               AL-INFOTECH
-            </div>
-            <div className="text-gray-300 text-sm">
+            </h3>
+            <p className="font-lato text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
               Tours and Travels
-            </div>
-          </div>
-
-          {/* Nav Links */}
-          <div className="flex flex-wrap justify-center gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-white font-['Cinzel'] text-[11px] tracking-widest hover:text-[var(--gold)] transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Tagline */}
-          <div className="text-right">
-            <p className="text-gray-300 text-sm italic">
-              Trusted by 500+ families across
-              <br />
-              AP & Telangana
             </p>
-          </div>
+            <p className="font-lato text-sm mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              Trusted by 500+ families since 2010
+            </p>
+          </motion.div>
+
+          {/* Center: Nav Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="flex flex-col gap-3"
+          >
+            {navLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                className="font-marcellus text-sm hover:text-gold-light transition-colors duration-300"
+                style={{ color: 'rgba(255,255,255,0.6)' }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </motion.div>
+
+          {/* Right: Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <p className="font-lato text-sm mb-2" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              Shop No. 24, 1st Floor,
+              <br />
+              Nandini Cloth Market, Proddatur
+            </p>
+            <a
+              href="tel:+918919990806"
+              className="font-lato text-sm hover:text-gold-light transition-colors duration-300 block"
+              style={{ color: 'rgba(255,255,255,0.6)' }}
+            >
+              +91 89199 90806
+            </a>
+            <a
+              href="mailto:alinfotechtours@gmail.com"
+              className="font-lato text-sm hover:text-gold-light transition-colors duration-300 block"
+              style={{ color: 'rgba(255,255,255,0.6)' }}
+            >
+              alinfotechtours@gmail.com
+            </a>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[var(--gold)] border-opacity-30 text-center">
-          <p className="text-gray-300 text-sm">
+        <div className="border-t pt-8" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+          <p className="font-lato text-xs text-center" style={{ color: 'rgba(255,255,255,0.4)' }}>
             © 2025 Al-Infotech Tours and Travels. All rights reserved.
           </p>
         </div>

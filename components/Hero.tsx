@@ -15,14 +15,14 @@ export default function Hero() {
     },
   };
 
-  const lineVariants = {
-    hidden: { opacity: 0, y: 40 },
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+        duration: 0.9,
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
   };
@@ -31,121 +31,107 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image with Parallax */}
       <motion.div
-        className="absolute inset-0"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="absolute inset-0"
       >
         <Image
-          src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=2400"
+          src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=2400"
           alt="Kaaba at golden hour"
           fill
-          className="object-cover"
           priority
+          className="object-cover"
+          quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(255,255,255,0.7)] to-[rgba(255,255,255,0.9)]" />
+        {/* Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(135deg, rgba(26,58,42,0.75) 0%, rgba(26,58,42,0.4) 50%, rgba(26,58,42,0.6) 100%)',
+          }}
+        />
       </motion.div>
 
-      {/* Gold glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--gold)] opacity-10 blur-[120px] rounded-full" />
-
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-6">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-[900px] text-center"
-        >
-          {/* Eyebrow */}
+      <div className="relative h-full flex items-center">
+        <div className="container-custom">
           <motion.div
-            variants={lineVariants}
-            className="font-['Cinzel'] text-[var(--gold)] text-xs tracking-[0.3em] uppercase mb-6"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-[680px]"
           >
-            TRUSTED TRAVEL PARTNER SINCE 2010
-          </motion.div>
+            {/* Eyebrow */}
+            <motion.div variants={itemVariants} className="mb-6">
+              <p className="eyebrow text-gold-light">
+                TRUSTED SINCE 2010 · NUSUK CERTIFIED
+              </p>
+              <div className="w-[60px] h-[1px] bg-gold-light mt-4" />
+            </motion.div>
 
-          {/* Headline */}
-          <motion.h1
-            variants={lineVariants}
-            className="font-['Cormorant_Garamond'] font-light text-[var(--cream)] mb-6"
-            style={{
-              fontSize: 'clamp(56px, 8vw, 120px)',
-              letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-            }}
-          >
-            Your Journey of a Lifetime,
-          </motion.h1>
-          <motion.h1
-            variants={lineVariants}
-            className="font-['Cormorant_Garamond'] font-light text-[var(--cream)] mb-8"
-            style={{
-              fontSize: 'clamp(56px, 8vw, 120px)',
-              letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-            }}
-          >
-            Planned to Perfection
-          </motion.h1>
-
-          {/* Subtext */}
-          <motion.p
-            variants={lineVariants}
-            className="text-[var(--muted)] text-lg leading-relaxed mb-12 max-w-[700px] mx-auto"
-          >
-            Licensed Umrah operator. Handcrafted tour packages. Serving pilgrims
-            and travelers across Andhra Pradesh & Telangana.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            variants={lineVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <motion.a
-              href="#umrah"
-              className="px-8 py-4 bg-[var(--gold)] text-white font-['Cinzel'] text-sm tracking-widest rounded-full"
-              whileHover={{
-                scale: 1.02,
-                boxShadow: '0 0 40px rgba(212, 175, 55, 0.4)',
+            {/* Headline */}
+            <motion.h1
+              variants={itemVariants}
+              className="font-playfair font-bold text-white mb-6"
+              style={{
+                fontSize: 'clamp(48px, 7vw, 96px)',
+                lineHeight: '1.1',
+                letterSpacing: '-0.02em',
               }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.3 }}
             >
-              EXPLORE UMRAH PACKAGES
-            </motion.a>
-            <motion.a
-              href="#tours"
-              className="px-8 py-4 border-2 border-[var(--navy)] text-[var(--navy)] font-['Cinzel'] text-sm tracking-widest rounded-full"
-              whileHover={{
-                scale: 1.02,
-                borderColor: 'var(--gold)',
-                color: 'var(--gold)',
-              }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.3 }}
+              Your Journey of a Lifetime,
+              <br />
+              Planned to Perfection.
+            </motion.h1>
+
+            {/* Subtext */}
+            <motion.p
+              variants={itemVariants}
+              className="font-lato font-light text-[17px] leading-relaxed mb-10"
+              style={{ color: 'rgba(255,255,255,0.85)' }}
             >
-              VIEW TOUR PACKAGES
-            </motion.a>
+              First licensed Umrah operator in Andhra Pradesh & Telangana.
+              <br />
+              Handcrafted packages for pilgrims and travelers.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4"
+            >
+              <a
+                href="#umrah"
+                className="bg-white text-green font-marcellus tracking-[0.2em] uppercase text-[13px] px-8 py-[14px] rounded-sm hover:bg-bg transition-all duration-300"
+              >
+                EXPLORE UMRAH
+              </a>
+              <a
+                href="#tours"
+                className="bg-transparent border border-white text-white font-marcellus tracking-[0.2em] uppercase text-[13px] px-8 py-[14px] rounded-sm hover:bg-white hover:text-green transition-all duration-300"
+              >
+                VIEW TOURS
+              </a>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
+          transition={{ delay: 1.5, duration: 0.7 }}
+          className="absolute bottom-12 left-12 hidden md:flex items-center gap-4"
         >
-          <div className="w-px h-16 bg-[var(--gold)] mb-4" />
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-            className="text-[var(--gold)] text-2xl"
+          <div className="w-[1px] h-[60px] bg-gold-light" />
+          <p
+            className="font-marcellus text-[10px] text-white tracking-widest"
+            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
           >
-            ↓
-          </motion.div>
+            SCROLL
+          </p>
         </motion.div>
       </div>
     </section>
