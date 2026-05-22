@@ -1,41 +1,41 @@
-import type { Metadata } from 'next';
-import { Cormorant_Garamond, Cinzel, DM_Sans } from 'next/font/google';
-import './globals.css';
-import SmoothScroll from '@/components/SmoothScroll';
-import CustomCursor from '@/components/CustomCursor';
+import type { Metadata } from "next";
+import { Playfair_Display, Cormorant_Garamond, Marcellus, Lato } from "next/font/google";
+import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-cormorant',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
 });
 
-const cinzel = Cinzel({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-cinzel',
-  display: 'swap',
+const marcellus = Marcellus({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-marcellus",
+  display: "swap",
 });
 
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-dm-sans',
-  display: 'swap',
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-lato",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: 'AL-INFOTECH Tours and Travels | Umrah & Kashmir Packages',
-  description:
-    'First licensed Umrah operator in Andhra Pradesh & Telangana. Premium Umrah packages and domestic tour packages to Kashmir, Goa, Kerala. Based in Proddatur, Kadapa.',
-  keywords:
-    'Umrah packages, Kashmir tour, Proddatur travel agency, Kadapa tours, Andhra Pradesh Umrah, licensed Umrah operator, domestic tour packages',
-  openGraph: {
-    title: 'AL-INFOTECH Tours and Travels',
-    description: 'Your Journey of a Lifetime, Planned to Perfection',
-    type: 'website',
-  },
+  title: "AL-INFOTECH Tours and Travels | Umrah & Kashmir Packages",
+  description: "First licensed Umrah operator in Andhra Pradesh & Telangana. Handcrafted packages for pilgrims and travelers. Based in Proddatur, Kadapa.",
+  keywords: ["Umrah packages", "Kashmir tours", "AL-INFOTECH", "Proddatur travel agency", "Andhra Pradesh Umrah", "NUSUK certified"],
 };
 
 export default function RootLayout({
@@ -44,10 +44,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${cinzel.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${marcellus.variable} ${lato.variable}`}>
       <body>
         <SmoothScroll>
-          <CustomCursor />
           {children}
         </SmoothScroll>
       </body>
