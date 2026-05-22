@@ -64,6 +64,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               className="lg:col-span-7 max-w-[820px]"
+              style={{ paddingTop: '16vh' }}
             >
               {/* Eyebrow */}
               <motion.div variants={itemVariants} className="mb-8">
@@ -78,13 +79,15 @@ export default function Hero() {
                 variants={itemVariants}
                 className="font-playfair font-bold text-white mb-8"
                 style={{
-                  fontSize: 'clamp(3.5rem, 7vw, 7rem)',
-                  lineHeight: '0.95',
+                  fontSize: 'clamp(3rem, 5.8vw, 6rem)',
+                  lineHeight: '0.92',
                   letterSpacing: '-0.02em',
                 }}
               >
-                Your Journey of a Lifetime,{' '}
-                <span className="text-gold-light">Planned to Perfection.</span>
+                Your Journey <br />
+                of a Lifetime, <br />
+                <span className="text-gold-light">Planned to</span> <br />
+                <span className="text-gold-light">Perfection.</span>
               </motion.h1>
 
               {/* Subtext */}
