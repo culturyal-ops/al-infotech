@@ -40,13 +40,14 @@ export default function Navbar() {
         }`}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between py-5">
-            {/* Logo - Just the image, no text */}
+          <div className="flex items-center justify-between py-6">
+            {/* Logo - BOLD and ANCHORED */}
             <a href="/" className="flex items-center">
               <img 
                 src="/images/logo.png" 
                 alt="AL-INFOTECH Tours & Travels" 
-                className="h-20 md:h-24 lg:h-28 w-auto"
+                className="h-[88px] w-auto object-contain"
+                style={{ height: '88px', width: 'auto' }}
               />
             </a>
 
