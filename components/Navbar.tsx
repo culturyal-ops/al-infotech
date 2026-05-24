@@ -42,14 +42,14 @@ export default function Navbar() {
       >
         <div className="container-custom">
           <div className="flex items-center justify-between py-6">
-            {/* Logo - MASSIVE SIZE, closer to edge */}
+            {/* Logo - closer to edge */}
             <a href="/" className="flex items-center -ml-2">
               <Image 
                 src="/images/logo.png" 
                 alt="AL-INFOTECH Tours & Travels" 
-                width={280}
-                height={120}
-                className="h-28 lg:h-32 w-auto object-contain"
+                width={240}
+                height={100}
+                className="h-20 lg:h-24 w-auto object-contain"
                 priority
               />
             </a>
