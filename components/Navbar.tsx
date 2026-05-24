@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,13 +42,15 @@ export default function Navbar() {
       >
         <div className="container-custom">
           <div className="flex items-center justify-between py-6">
-            {/* Logo - BOLD and ANCHORED */}
+            {/* Logo - MASSIVE SIZE */}
             <a href="/" className="flex items-center">
-              <img 
+              <Image 
                 src="/images/logo.png" 
                 alt="AL-INFOTECH Tours & Travels" 
-                className="h-[88px] w-auto object-contain"
-                style={{ height: '88px', width: 'auto' }}
+                width={240}
+                height={100}
+                className="h-24 lg:h-28 w-auto object-contain"
+                priority
               />
             </a>
 
