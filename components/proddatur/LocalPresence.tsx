@@ -21,7 +21,7 @@ export default function LocalPresence() {
         >
           <div className="space-y-8 font-lato text-text leading-relaxed text-lg mb-12">
             <p>
-              Al-Infotech Tours and Travels has been Proddatur&apos;s most trusted name in Umrah and domestic tourism since 2010. Our office at Shop No. 24, First Floor, Nandini Cloth Market, Proddatur is open six days a week for walk-in consultations.
+              Al-Infotech Tours and Travels has been Proddatur&apos;s most trusted name in Umrah and domestic tourism since 2018. Our office at Shop No. 24, First Floor, Nandini Cloth Market, Proddatur is open six days a week for walk-in consultations.
             </p>
 
             <p>

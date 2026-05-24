@@ -31,7 +31,7 @@ export default function Footer() {
               Tours and Travels
             </p>
             <p className="font-lato text-sm mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
-              Trusted by 500+ families since 2010
+              Trusted by 500+ families since 2018
             </p>
           </motion.div>
 
@@ -96,6 +96,19 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Social Media Icons */}
             <div className="flex items-center gap-4">
+              {/* YouTube */}
+              <a
+                href="https://m.youtube.com/@alinfotechtoursandtravels"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-gold/20 flex items-center justify-center transition-all duration-300 group"
+                aria-label="YouTube"
+              >
+                <svg className="w-5 h-5 text-white/60 group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+
               {/* Facebook */}
               <a
                 href="https://facebook.com"
@@ -111,7 +124,7 @@ export default function Footer() {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/alinfotechtoursandtravels/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-gold/20 flex items-center justify-center transition-all duration-300 group"

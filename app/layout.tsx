@@ -47,7 +47,7 @@ const schemaData = {
     "@type": "Person",
     "name": "Shaik Shaiksha Valli"
   },
-  "foundingDate": "2010",
+  "foundingDate": "2018",
   "description": "First licensed Umrah operator in Andhra Pradesh and Telangana. Packages for Umrah pilgrims and domestic travelers.",
   "address": {
     "@type": "PostalAddress",

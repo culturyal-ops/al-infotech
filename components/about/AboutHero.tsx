@@ -40,7 +40,7 @@ export default function AboutHero() {
             className="max-w-[720px]"
           >
             <p className="eyebrow text-gold-light tracking-[0.3em] mb-8">
-              OUR STORY · TRUSTED SINCE 2010
+              OUR STORY · TRUSTED SINCE 2018
             </p>
             <div className="w-[80px] h-[1px] bg-gold-light mb-8" />
             

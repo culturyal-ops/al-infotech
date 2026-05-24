@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoldVault ERP – Kerala Gold Association Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0D0D0D;
+    --card:      #1A1A1A;
+    --card2:     #141414;
+    --gold:      #D4AF37;
+    --gold-dim:  #9A7F28;
+    --gold-pale: #F0D882;
+    --gold-dark: #7A5C10;
+    --text:      #E8E0D0;
+    --muted:     #888070;
+    --border:    rgba(212,175,55,0.25);
+    --border-hi: rgba(212,175,55,0.6);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.92);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 56px;
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+  }
+
+  .nav-dots {
+    display: flex;
+    gap: 10px;
+  }
+
+  .nav-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold-dim);
+    cursor: pointer;
+    transition: all 0.3s;
+    background: transparent;
+  }
+
+  .nav-dot.active {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  /* ── SLIDES ── */
+  .slide {
+    min-height: 100vh;
+    padding: 90px 60px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(212,175,55,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 70px;
+    right: 60px;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: rgba(212,175,55,0.06);
+    line-height: 1;
+    user-select: none;
+  }
+
+  .slide-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .slide-label::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1, h2 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ── SLIDE 1: TITLE ── */
+  #slide1 {
+    background: var(--bg);
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .title-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .title-main {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 900;
+    line-height: 1.0;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .title-main span {
+    color: var(--gold);
+  }
+
+  .title-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.5vw, 28px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+
+  .title-desc {
+    max-width: 540px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    border-left: 2px solid var(--gold);
+    padding-left: 20px;
+  }
+
+  /* USB GRAPHIC */
+  .usb-wrap {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.92;
+  }
+
+  .usb-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .usb-svg {
+    width: 180px;
+    filter: drop-shadow(0 0 40px rgba(212,175,55,0.25));
+    display: block;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  .title-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    background: var(--card);
+    letter-spacing: 0.04em;
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .badge-dot.green { background: #22c55e; }
+  .badge-dot.red { background: #ef4444; }
+
+  /* ── GOLD RULE ── */
+  .gold-rule {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 32px 0;
+    opacity: 0.4;
+  }
+
+  /* ── SLIDE 2: PROBLEM ── */
+  #slide2 { background: var(--card2); }
+
+  .problem-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4.5vw, 58px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    max-width: 680px;
+    margin-bottom: 48px;
+  }
+
+  .problem-headline em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+  }
+
+  .problem-card {
+    background: var(--bg);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-left: 3px solid rgba(239,68,68,0.6);
+    padding: 24px 24px 24px 20px;
+    border-radius: 4px;
+  }
+
+  .problem-card-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .problem-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .problem-card p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── SLIDE 3: WHAT WE DO ── */
+  #slide3 { background: var(--bg); }
+
+  .pillars-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4.5vw, 58px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 52px;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+  }
+
+  .pillar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 36px 28px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .pillar:hover::after { opacity: 1; }
+
+  .pillar-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(212,175,55,0.12);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .pillar h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .pillar p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .pillar-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  /* ── SLIDE 4: MODULES ── */
+  #slide4 { background: var(--card2); }
+
+  .modules-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4.5vw, 56px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 44px;
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 960px;
+  }
+
+  .module-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 22px 20px;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+  }
+
+  .module-card:hover { border-color: var(--gold-dim); }
+
+  .module-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .module-icon {
+    width: 34px; height: 34px;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .module-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--gold-pale);
+    letter-spacing: 0.02em;
+  }
+
+  .module-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .module-card li {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .module-card li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dark);
+    font-size: 10px;
+  }
+
+  /* ── SLIDE 5: SECURITY ── */
+  #slide5 { background: var(--bg); }
+
+  .security-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4.5vw, 56px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 48px;
+  }
+
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+  }
+
+  .security-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px 24px;
+    border-radius: 4px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .security-card-icon {
+    width: 44px; height: 44px;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid var(--border-hi);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .security-card-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .security-card-body p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .security-card-body strong {
+    color: var(--gold-pale);
+    font-weight: 500;
+  }
+
+  /* ── SLIDE 6: INVESTMENT ── */
+  #slide6 { background: var(--card2); }
+
+  .pricing-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4.5vw, 56px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 48px;
+  }
+
+  .pricing-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 900px;
+  }
+
+  .pricing-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .pricing-card.featured {
+    border-color: var(--gold);
+    box-shadow: 0 0 40px rgba(212,175,55,0.1);
+  }
+
+  .pricing-card-tag {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: var(--gold);
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .pricing-card-top {
+    padding: 32px 28px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-tier {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 12px;
+  }
+
+  .pricing-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pricing-amount span {
+    font-size: 22px;
+    color: var(--gold);
+    vertical-align: super;
+    font-weight: 600;
+  }
+
+  .pricing-note {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .pricing-card-body {
+    padding: 24px 28px 28px;
+  }
+
+  .pricing-card-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pricing-card-body li {
+    font-size: 13.5px;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .pricing-card-body li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── SLIDE 7: CLOSE ── */
+  #slide7 {
+    background: var(--bg);
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+
+  #slide7::before {
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 70%);
+  }
+
+  .close-ornament {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 36px;
+  }
+
+  .close-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.5vw, 44px);
+    font-weight: 700;
+    font-style: italic;
+    color: #fff;
+    max-width: 820px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  .close-quote em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .close-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 52px;
+    line-height: 1.6;
+  }
+
+  .close-contact {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border: 1px solid var(--border-hi);
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--card);
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.02em;
+  }
+
+  .contact-pill:hover {
+    border-color: var(--gold);
+    background: rgba(212,175,55,0.08);
+    color: #fff;
+  }
+
+  .contact-pill-icon { font-size: 18px; }
+
+  .close-logo {
+    margin-top: 48px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: rgba(212,175,55,0.35);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .powered-by {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(212,175,55,0.3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .revolq-link {
+    color: var(--gold-dim);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    transition: color 0.3s;
+  }
+
+  .revolq-link:hover {
+    color: var(--gold);
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    nav { display: none !important; }
+    body { background: #fff !important; color: #000 !important; }
+    .slide {
+      min-height: auto;
+      page-break-after: always;
+      break-after: page;
+      padding: 40px;
+    }
+    :root {
+      --bg: #fff;
+      --card: #f5f5f5;
+      --card2: #f9f9f9;
+      --text: #111;
+      --muted: #555;
+      --border: rgba(0,0,0,0.15);
+    }
+    .usb-wrap { display: none; }
+    .slide::before { display: none; }
+    .slide-number { display: none; }
+    h1, h2, h3, h4 { color: #111 !important; }
+    .title-main, .problem-headline, .pillars-headline,
+    .modules-headline, .security-headline, .pricing-headline,
+    .close-quote { color: #111 !important; }
+    .gold-rule { background: #999; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .slide { padding: 90px 24px 48px; }
+    nav { padding: 0 20px; }
+    .usb-wrap { display: none; }
+    .problems-grid,
+    .pillars-grid,
+    .modules-grid,
+    .security-grid,
+    .pricing-row { grid-template-columns: 1fr; }
+    .slide-number { font-size: 48px; }
+  }
+
+  /* ── SCROLL ANIMATION ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in:nth-child(2) { transition-delay: 0.1s; }
+  .fade-in:nth-child(3) { transition-delay: 0.2s; }
+  .fade-in:nth-child(4) { transition-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-brand">GoldVault ERP</div>
+  <div class="nav-dots" id="navDots">
+    <div class="nav-dot active" onclick="goTo(1)" title="Title"></div>
+    <div class="nav-dot" onclick="goTo(2)" title="The Problem"></div>
+    <div class="nav-dot" onclick="goTo(3)" title="What We Do"></div>
+    <div class="nav-dot" onclick="goTo(4)" title="Modules"></div>
+    <div class="nav-dot" onclick="goTo(5)" title="Security"></div>
+    <div class="nav-dot" onclick="goTo(6)" title="Investment"></div>
+    <div class="nav-dot" onclick="goTo(7)" title="Contact"></div>
+  </div>
+</nav>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━ SLIDE 1: TITLE ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="slide" id="slide1">
+  <div class="slide-number">01</div>
+
+  <div class="title-eyebrow">Presented to the Kerala Gold Association</div>
+
+  <h1 class="title-main fade-in">Gold<span>Vault</span><br>ERP</h1>
+  <p class="title-sub fade-in">Complete offline manufacturing system<br>for Kerala's jewellery industry</p>
+
+  <p class="title-desc fade-in">
+    Built for jewellers who believe their business data belongs to them — not a server, not a subscription company, not anyone else.
+  </p>
+
+  <div class="title-badges fade-in">
+    <div class="badge"><span class="badge-dot"></span> No Internet Required</div>
+    <div class="badge"><span class="badge-dot green"></span> One-Time Payment</div>
+    <div class="badge"><span class="badge-dot red" style="background:var(--gold)"></span> Your Data Stays With You</div>
+  </div>
+
+  <!-- USB GRAPHIC -->
+  <div class="usb-wrap">
+    <div class="usb-float">
+    <svg class="usb-svg" viewBox="0 0 160 320" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="metalBody" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#2a2a2a"/>
+          <stop offset="20%" stop-color="#4a4a4a"/>
+          <stop offset="45%" stop-color="#5a5a5a"/>
+          <stop offset="70%" stop-color="#3a3a3a"/>
+          <stop offset="100%" stop-color="#1e1e1e"/>
+        </linearGradient>
+        <linearGradient id="metalConnector" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#888"/>
+          <stop offset="30%" stop-color="#c0c0c0"/>
+          <stop offset="60%" stop-color="#a0a0a0"/>
+          <stop offset="100%" stop-color="#666"/>
+        </linearGradient>
+        <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#8B6914"/>
+          <stop offset="40%" stop-color="#D4AF37"/>
+          <stop offset="70%" stop-color="#F0D882"/>
+          <stop offset="100%" stop-color="#9A7F28"/>
+        </linearGradient>
+        <linearGradient id="ledGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#D4AF37" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#8B6914" stop-opacity="0.4"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="softShadow">
+          <feDropShadow dx="4" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.6"/>
+        </filter>
+      </defs>
+
+      <!-- USB BODY -->
+      <rect x="22" y="70" width="116" height="220" rx="10" fill="url(#metalBody)" filter="url(#softShadow)"/>
+
+      <!-- BODY SIDE SHEEN -->
+      <rect x="22" y="70" width="14" height="220" rx="7" fill="rgba(255,255,255,0.04)"/>
+      <rect x="124" y="70" width="14" height="220" rx="7" fill="rgba(0,0,0,0.2)"/>
+
+      <!-- GOLD BAND TOP -->
+      <rect x="22" y="82" width="116" height="8" rx="1" fill="url(#goldAccent)" opacity="0.9"/>
+
+      <!-- GOLD BAND BOTTOM -->
+      <rect x="22" y="268" width="116" height="8" rx="1" fill="url(#goldAccent)" opacity="0.9"/>
+
+      <!-- GOLDVAULT LOGO AREA (center label) -->
+      <rect x="30" y="118" width="100" height="60" rx="4" fill="rgba(0,0,0,0.35)" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>
+      <text x="80" y="143" font-family="serif" font-size="13" font-weight="bold" fill="#D4AF37" text-anchor="middle" letter-spacing="1">GOLD</text>
+      <text x="80" y="162" font-family="serif" font-size="11" fill="#9A7F28" text-anchor="middle" letter-spacing="3">VAULT</text>
+
+      <!-- LED INDICATOR -->
+      <ellipse cx="80" cy="200" rx="6" ry="6" fill="url(#ledGlow)" filter="url(#glow)" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+      </ellipse>
+      <text x="80" y="224" font-family="sans-serif" font-size="8" fill="#888" text-anchor="middle" letter-spacing="1">ACTIVE</text>
+
+      <!-- SCREW TOP LEFT -->
+      <circle cx="36" cy="84" r="4" fill="#222" stroke="#555" stroke-width="0.5"/>
+      <line x1="33" y1="84" x2="39" y2="84" stroke="#666" stroke-width="0.8"/>
+
+      <!-- SCREW TOP RIGHT -->
+      <circle cx="124" cy="84" r="4" fill="#222" stroke="#555" stroke-width="0.5"/>
+      <line x1="121" y1="84" x2="127" y2="84" stroke="#666" stroke-width="0.8"/>
+
+      <!-- BOTTOM SCREW LEFT -->
+      <circle cx="36" cy="272" r="4" fill="#222" stroke="#555" stroke-width="0.5"/>
+      <line x1="33" y1="272" x2="39" y2="272" stroke="#666" stroke-width="0.8"/>
+
+      <!-- BOTTOM SCREW RIGHT -->
+      <circle cx="124" cy="272" r="4" fill="#222" stroke="#555" stroke-width="0.5"/>
+      <line x1="121" y1="272" x2="127" y2="272" stroke="#666" stroke-width="0.8"/>
+
+      <!-- USB CONNECTOR (top) -->
+      <rect x="44" y="18" width="72" height="56" rx="4" fill="url(#metalConnector)" filter="url(#softShadow)"/>
+      <rect x="50" y="24" width="60" height="44" rx="3" fill="#1a1a1a" stroke="#777" stroke-width="0.5"/>
+      <!-- inner contacts -->
+      <rect x="56" y="30" width="48" height="6" rx="1" fill="#555"/>
+      <rect x="56" y="40" width="48" height="6" rx="1" fill="#444"/>
+      <rect x="56" y="50" width="48" height="6" rx="1" fill="#555"/>
+
+      <!-- CONNECTOR SHEEN -->
+      <rect x="44" y="18" width="10" height="56" rx="4" fill="rgba(255,255,255,0.12)"/>
+
+      <!-- ENCRYPTION BADGE -->
+      <rect x="30" y="238" width="100" height="22" rx="3" fill="rgba(212,175,55,0.08)" stroke="rgba(212,175,55,0.2)" stroke-width="0.8"/>
+      <text x="80" y="253" font-family="sans-serif" font-size="7.5" fill="#9A7F28" text-anchor="middle" letter-spacing="1.5">AES-256 ENCRYPTED</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━ SLIDE 2: PROBLEM ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="slide" id="slide2">
+  <div class="slide-number">02</div>
+  <div class="slide-label">The Problem</div>
+
+  <h2 class="problem-headline fade-in">Current software is built for<br><em>their</em> convenience,<br>not yours.</h2>
+
+  <div class="problems-grid">
+    <div class="problem-card fade-in">
+      <div class="problem-card-icon">☁️</div>
+      <h4>Your data sits on their server</h4>
+      <p>Cloud software means a company you don't know holds your customer records, gold weights, and business history. Any breach, shutdown, or price hike affects you.</p>
+    </div>
+    <div class="problem-card fade-in">
+      <div class="problem-card-icon">🔁</div>
+      <h4>You pay forever or lose everything</h4>
+      <p>Subscriptions make you a tenant, not an owner. Miss one payment and you're locked out of your own records. Your data is held hostage.</p>
+    </div>
+    <div class="problem-card fade-in">
+      <div class="problem-card-icon">📡</div>
+      <h4>No internet means no work</h4>
+      <p>Network down? Server maintenance? You stop. When your team can't operate during a connectivity issue, that's a business risk you carry for them.</p>
+    </div>
+    <div class="problem-card fade-in">
+      <div class="problem-card-icon">⚖️</div>
+      <h4>No gold-specific calculations</h4>
+      <p>Generic software doesn't understand 995 basis, touch percentages, stone deductions, or melting batch purity verification. You're forced to manage this manually.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━ SLIDE 3: WHAT WE DO ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="slide" id="slide3">
+  <div class="slide-number">03</div>
+  <div class="slide-label">What GoldVault Does</div>
+
+  <h2 class="pillars-headline fade-in">Three commitments.<br>No exceptions.</h2>
+
+  <div class="pillars-grid">
+    <div class="pillar fade-in">
+      <div class="pillar-num">I</div>
+      <div class="pillar-icon">🔌</div>
+      <h3>Complete Offline</h3>
+      <p>Runs entirely from your USB drive. No internet connection. No cloud. No third-party server ever sees your data. If the entire internet goes down, GoldVault keeps working.</p>
+    </div>
+    <div class="pillar fade-in">
+      <div class="pillar-num">II</div>
+      <div class="pillar-icon">💰</div>
+      <h3>One-Time Payment</h3>
+      <p>Buy it. Own it. No monthly fees. No annual renewals. No licence expiry. Ten years from today, the same software still works — because it belongs to you.</p>
+    </div>
+    <div class="pillar fade-in">
+      <div class="pillar-num">III</div>
+      <div class="pillar-icon">💎</div>
+      <h3>Gold-Specific Logic</h3>
+      <p>Built by people who understand jewellery manufacturing. Every calculation — 995 basis, touch%, stone deduction, purity verification — is handled correctly, automatically.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━ SLIDE 4: MODULES ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="slide" id="slide4">
+  <div class="slide-number">04</div>
+  <div class="slide-label">Key Modules</div>
+
+  <h2 class="modules-headline fade-in">Everything your workshop<br>needs. Nothing it doesn't.</h2>
+
+  <div class="modules-grid">
+    <div class="module-card fade-in">
+      <div class="module-card-header">
+        <div class="module-icon">🔨</div>
+        <h4>Smith Management</h4>
+      </div>
+      <ul>
+        <li>Issue gold (999 / 995 / 9999)</li>
+        <li>Receive 916 ornaments</li>
+        <li>Live smith balance tracking</li>
+        <li>Cash settlement with rate lock</li>
+      </ul>
+    </div>
+    <div class="module-card fade-in">
+      <div class="module-card-header">
+        <div class="module-icon">🔥</div>
+        <h4>Melting & Sait Batches</h4>
+      </div>
+      <ul>
+        <li>Auto-numbered batches (SAIT-001…)</li>
+        <li>Karat analyser purity entry</li>
+        <li>Installment return recording</li>
+        <li>Purity cross-check (±0.2%)</li>
+      </ul>
+    </div>
+    <div class="module-card fade-in">
+      <div class="module-card-header">
+        <div class="module-icon">📦</div>
+        <h4>Stock Tracking</h4>
+      </div>
+      <ul>
+        <li>Pure gold: 999, 995, 9999</li>
+        <li>916 ornament inventory</li>
+        <li>Gross + net weight per item</li>
+        <li>Admin-only stock transfers</li>
+      </ul>
+    </div>
+    <div class="module-card fade-in">
+      <div class="module-card-header">
+        <div class="module-icon">📒</div>
+        <h4>Cash Book</h4>
+      </div>
+      <ul>
+        <li>Auto-populated from transactions</li>
+        <li>Category-wise totals</li>
+        <li>Manual entry support</li>
+        <li>Rate stored at time of entry</li>
+      </ul>
+    </div>
+    <div class="module-card fade-in">
+      <div class="module-card-header">
+        <div class="module-icon">📊</div>
+        <h4>10 Reports</h4>
+      </div>
+      <ul>
+        <li>Daily summary</li>
+        <li>Smith-wise ledger with running balance</li>
+        <li>Pure gold ledger</li>
+        <li>Audit log (immutable)</li>
+      </ul>
+    </div>
+    <div class="module-card fade-in">
+      <div class="module-card-header">
+        <div class="module-icon">📐</div>
+        <h4>Gold Calculations</h4>
+      </div>
+      <ul>
+        <li>995 basis normalization</li>
+        <li>Touch% per smith, per item</li>
+        <li>Stone deduction (auto)</li>
+        <li>Ceiling & floor rounding</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━ SLIDE 5: SECURITY ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="slide" id="slide5">
+  <div class="slide-number">05</div>
+  <div class="slide-label">Security & Control</div>
+
+  <h2 class="security-headline fade-in">Four locks between<br>your data and the world.</h2>
+
+  <div class="security-grid">
+    <div class="security-card fade-in">
+      <div class="security-card-icon">🔑</div>
+      <div class="security-card-body">
+        <h4>USB Hardware Binding</h4>
+        <p>The software is cryptographically tied to your registered USB. <strong>Copy the files to any other drive — it won't open.</strong> Not for your IT person. Not for anyone.</p>
+      </div>
+    </div>
+    <div class="security-card fade-in">
+      <div class="security-card-icon">🔒</div>
+      <div class="security-card-body">
+        <h4>AES-256 Encryption</h4>
+        <p>Your database is encrypted with the same standard used by banks and governments. <strong>Without your master password, the file is pure gibberish</strong> — to anyone, including us.</p>
+      </div>
+    </div>
+    <div class="security-card fade-in">
+      <div class="security-card-icon">👤</div>
+      <div class="security-card-body">
+        <h4>User Roles</h4>
+        <p>Admin controls everything. Employees can only <strong>request changes</strong> — nothing goes through until you approve it. No unauthorised edits, ever.</p>
+      </div>
+    </div>
+    <div class="security-card fade-in">
+      <div class="security-card-icon">📋</div>
+      <div class="security-card-body">
+        <h4>Immutable Audit Trail</h4>
+        <p>Every action — every entry, edit, approval — is permanently logged. <strong>No record can be deleted.</strong> When the auditor comes, you're ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━ SLIDE 6: INVESTMENT ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="slide" id="slide6">
+  <div class="slide-number">06</div>
+  <div class="slide-label">Investment</div>
+
+  <h2 class="pricing-headline fade-in">One payment.<br>Lifetime ownership.</h2>
+
+  <div class="pricing-row">
+    <div class="pricing-card fade-in">
+      <div class="pricing-card-top">
+        <div class="pricing-tier">Professional Package</div>
+        <div class="pricing-amount"><span>₹</span>1,50,000</div>
+        <div class="pricing-note">One-time. No renewals. Ever.</div>
+      </div>
+      <div class="pricing-card-body">
+        <ul>
+          <li>2 premium USBs — primary &amp; backup</li>
+          <li>2 years support included</li>
+          <li>On-site training for your team</li>
+          <li>Lifetime licence — software is yours</li>
+          <li>All 10 modules included</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pricing-card featured fade-in">
+      <div class="pricing-card-tag">Recommended</div>
+      <div class="pricing-card-top">
+        <div class="pricing-tier">Enterprise Package</div>
+        <div class="pricing-amount"><span>₹</span>2,50,000</div>
+        <div class="pricing-note">One-time. All branches covered.</div>
+      </div>
+      <div class="pricing-card-body">
+        <ul>
+          <li>5 USBs — all branches covered</li>
+          <li>3 years platinum support</li>
+          <li>1 custom feature per year</li>
+          <li>Priority on-site assistance</li>
+          <li>Lifetime licence — software is yours</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="gold-rule" style="max-width:900px; margin-top:36px;"></div>
+  <p style="max-width:900px; font-size:13px; color:var(--muted); font-style:italic;">
+    Compare this to any subscription software charging ₹3,000–₹8,000/month — GoldVault pays for itself within 2 years and stays with you indefinitely.
+  </p>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━ SLIDE 7: CLOSE ━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="slide" id="slide7">
+  <div class="slide-number">07</div>
+
+  <div class="close-ornament"></div>
+
+  <p class="close-quote fade-in">
+    "Your data stays with you.<br>
+    Your operations <em>never stop.</em><br>
+    Your software answers to <em>no one but you.</em>"
+  </p>
+
+  <p class="close-sub fade-in">
+    GoldVault ERP is not a service you subscribe to.<br>It is a tool you own — permanently.
+  </p>
+
+  <div class="close-contact fade-in">
+    <div class="contact-pill">
+      <span class="contact-pill-icon">📞</span>
+      <span>Eathen — 7306085895</span>
+    </div>
+    <div class="contact-pill">
+      <span class="contact-pill-icon">📞</span>
+      <span>Ajmal — 7995617374</span>
+    </div>
+    <div class="contact-pill">
+      <span class="contact-pill-icon">✉️</span>
+      <span>eathenbaby74@gmail.com</span>
+    </div>
+    <div class="contact-pill">
+      <span class="contact-pill-icon">✉️</span>
+      <span>ajmalmullapati@gmail.com</span>
+    </div>
+  </div>
+
+  <div class="close-logo">GoldVault ERP — Built for Kerala's Jewellery Industry</div>
+
+  <div class="powered-by fade-in">
+    Powered by <a href="https://revol-q.vercel.app" target="_blank" rel="noopener" class="revolq-link">REVOLQ</a>
+  </div>
+</section>
+
+<script>
+  function goTo(n) {
+    const el = document.getElementById('slide' + n);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Active nav dot on scroll
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.nav-dot');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        const n = parseInt(id.replace('slide', '')) - 1;
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[n]) dots[n].classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  slides.forEach(s => observer.observe(s));
+
+  // Fade-in animation
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  fadeEls.forEach(el => fadeObserver.observe(el));
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    const current = [...slides].findIndex(s => {
+      const r = s.getBoundingClientRect();
+      return r.top <= 100 && r.bottom > 100;
+    });
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      e.preventDefault();
+      if (current < slides.length - 1) slides[current + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+    if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      if (current > 0) slides[current - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
+</body>
+</html>

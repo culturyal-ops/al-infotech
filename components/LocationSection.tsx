@@ -77,8 +77,8 @@ export default function LocationSection() {
               <div>
                 <h3 className="heading-md mb-2">Office Hours</h3>
                 <p className="body-base text-text-muted">
-                  Monday - Saturday: 9:00 AM - 7:00 PM<br />
-                  Sunday: 10:00 AM - 5:00 PM
+                  Monday - Saturday: 9:30 AM - 8:00 PM<br />
+                  Sunday: 9:30 AM - 1:00 PM
                 </p>
               </div>
             </div>

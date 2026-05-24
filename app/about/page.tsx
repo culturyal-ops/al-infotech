@@ -8,7 +8,7 @@ import LocationSection from '@/components/LocationSection';
 
 export const metadata: Metadata = {
   title: 'About Al-Infotech Tours and Travels | Shaik Shaiksha Valli | Proddatur',
-  description: 'Meet Shaik Shaiksha Valli, founder of Al-Infotech Tours and Travels — the first licensed Umrah operator in Andhra Pradesh and Telangana. Trusted since 2010, Proddatur.',
+  description: 'Meet Shaik Shaiksha Valli, founder of Al-Infotech Tours and Travels — the first licensed Umrah operator in Andhra Pradesh and Telangana. Trusted since 2018, Proddatur.',
   keywords: ['Shaik Shaiksha Valli', 'Al-Infotech founder', 'Proddatur travel agency', 'licensed Umrah operator'],
 };
 

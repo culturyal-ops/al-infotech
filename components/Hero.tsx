@@ -69,7 +69,7 @@ export default function Hero() {
               {/* Eyebrow */}
               <motion.div variants={itemVariants} className="mb-8">
                 <p className="eyebrow text-gold-light tracking-[0.3em]">
-                  TRUSTED SINCE 2010 · NUSUK CERTIFIED
+                  TRUSTED SINCE 2018 · NUSUK CERTIFIED
                 </p>
                 <div className="w-[80px] h-[1px] bg-gold-light mt-5" />
               </motion.div>
