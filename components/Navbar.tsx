@@ -47,9 +47,9 @@ export default function Navbar() {
               <Image 
                 src="/images/logo.png" 
                 alt="AL-INFOTECH Tours & Travels" 
-                width={240}
-                height={100}
-                className="h-20 lg:h-24 w-auto object-contain"
+                width={200}
+                height={85}
+                className="h-16 lg:h-20 w-auto object-contain"
                 priority
               />
             </a>
