@@ -41,40 +41,13 @@ export default function Navbar() {
       >
         <div className="container-custom">
           <div className="flex items-center justify-between py-5">
-            {/* Logo */}
-            <a href="/" className="flex items-center gap-3">
-              {/* Logo image */}
+            {/* Logo - Just the image, no text */}
+            <a href="/" className="flex items-center">
               <img 
                 src="/images/logo.png" 
-                alt="AL-INFOTECH Logo" 
-                className="h-14 md:h-16 w-auto"
-                onError={(e) => {
-                  // Hide image if not found, show text logo instead
-                  e.currentTarget.style.display = 'none';
-                }}
+                alt="AL-INFOTECH Tours & Travels" 
+                className="h-16 md:h-20 w-auto"
               />
-              <div className="flex flex-col">
-                <span 
-                  className={`font-playfair text-2xl md:text-3xl font-bold leading-tight transition-colors duration-300 ${
-                    scrolled ? 'text-green' : 'text-white'
-                  }`}
-                  style={{
-                    textShadow: scrolled ? 'none' : '0 2px 12px rgba(0,0,0,0.5)'
-                  }}
-                >
-                  AL-INFOTECH
-                </span>
-                <span 
-                  className={`font-lato text-[11px] tracking-[0.2em] uppercase font-medium transition-colors duration-300 ${
-                    scrolled ? 'text-text-muted' : 'text-white/90'
-                  }`}
-                  style={{
-                    textShadow: scrolled ? 'none' : '0 1px 8px rgba(0,0,0,0.4)'
-                  }}
-                >
-                  Tours & Travels
-                </span>
-              </div>
             </a>
 
             {/* Desktop Nav Links */}
