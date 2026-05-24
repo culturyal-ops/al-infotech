@@ -42,25 +42,25 @@ export default function Navbar() {
       >
         <div className="container-custom">
           <div className="flex items-center justify-between py-6">
-            {/* Logo - MASSIVE SIZE */}
-            <a href="/" className="flex items-center">
+            {/* Logo - MASSIVE SIZE, closer to edge */}
+            <a href="/" className="flex items-center -ml-2">
               <Image 
                 src="/images/logo.png" 
                 alt="AL-INFOTECH Tours & Travels" 
-                width={240}
-                height={100}
-                className="h-24 lg:h-28 w-auto object-contain"
+                width={280}
+                height={120}
+                className="h-28 lg:h-32 w-auto object-contain"
                 priority
               />
             </a>
 
-            {/* Desktop Nav Links */}
-            <div className="hidden md:flex items-center gap-12">
+            {/* Desktop Nav Links - TIGHTER SPACING */}
+            <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
-                  className={`nav-link relative group transition-colors duration-300 font-medium ${
+                  className={`nav-link relative group transition-colors duration-300 font-medium text-sm ${
                     scrolled ? 'text-text hover:text-green' : 'text-white hover:text-gold'
                   }`}
                   style={{
