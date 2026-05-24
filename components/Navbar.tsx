@@ -43,11 +43,11 @@ export default function Navbar() {
           <div className="flex items-center justify-between py-5">
             {/* Logo */}
             <a href="/" className="flex items-center gap-3">
-              {/* Logo image - will show when logo.png is added to /public */}
+              {/* Logo image */}
               <img 
-                src="/logo.png" 
+                src="/images/logo.png" 
                 alt="AL-INFOTECH Logo" 
-                className="h-12 w-auto"
+                className="h-14 md:h-16 w-auto"
                 onError={(e) => {
                   // Hide image if not found, show text logo instead
                   e.currentTarget.style.display = 'none';
