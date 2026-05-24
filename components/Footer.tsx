@@ -148,7 +148,7 @@ export default function Footer() {
                 </svg>
               </a>
 
-              {/* RevolQ */}
+              {/* RevolQ - Clean R icon */}
               <a
                 href="https://revol-q.vercel.app/"
                 target="_blank"
@@ -157,8 +157,9 @@ export default function Footer() {
                 aria-label="RevolQ"
               >
                 <svg className="w-5 h-5 text-white/60 group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                  <path d="M7 8h4.5c1.38 0 2.5 1.12 2.5 2.5 0 .83-.4 1.56-1.03 2.03l1.53 2.47h-2.5l-1.25-2H9v2H7V8zm2 3.5h2.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5H9v1z"/>
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                  <path d="M8 8h5c1.66 0 3 1.34 3 3s-1.34 3-3 3h-2v3H9V8zm2 4h3c.55 0 1-.45 1-1s-.45-1-1-1h-3v2z"/>
+                  <path d="M13.5 14l2.5 3h-2l-2-2.5"/>
                 </svg>
               </a>
             </div>
@@ -173,10 +174,18 @@ export default function Footer() {
                 href="https://revol-q.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-lato text-xs hover:text-gold transition-colors duration-300 flex items-center gap-1.5"
-                style={{ color: 'rgba(255,255,255,0.4)' }}
+                className="font-lato text-xs hover:text-gold transition-colors duration-300 flex items-center gap-2 group"
+                style={{ color: 'rgba(255,255,255,0.5)' }}
               >
-                Powered by <span className="font-semibold text-gold">RevolQ</span>
+                <span>Powered by</span>
+                <span className="font-semibold text-gold group-hover:text-gold-light flex items-center gap-1">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    <path d="M8 8h5c1.66 0 3 1.34 3 3s-1.34 3-3 3h-2v3H9V8zm2 4h3c.55 0 1-.45 1-1s-.45-1-1-1h-3v2z"/>
+                    <path d="M13.5 14l2.5 3h-2l-2-2.5"/>
+                  </svg>
+                  RevolQ
+                </span>
               </a>
             </div>
           </div>
