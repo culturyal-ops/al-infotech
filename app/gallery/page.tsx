@@ -82,7 +82,7 @@ export default function GalleryPage() {
       <main>
         <GalleryHero />
         
-        <section className="py-12 md:py-16 bg-bg-section">
+        <section className="py-16 md:py-24 bg-bg-section">
           <GalleryGrid images={galleryImages} />
         </section>
 
