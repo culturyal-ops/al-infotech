@@ -1,48 +1,153 @@
 'use client';
 
+/**
+ * LoadingScreen - Cinematic Boot Animation
+ * 
+ * IMPORTANT: This is a ONE-TIME boot animation, NOT a route transition loader.
+ * 
+ * Architecture:
+ * - Lives ONLY in app/layout.tsx (root layout)
+ * - Should NOT be imported in any page.tsx or nested layouts
+ * - Mounted once at app initialization
+ * - Uses sessionStorage to prevent re-showing on route navigation
+ * 
+ * Behavior:
+ * - Shows ONLY on first site load/refresh in a browser session
+ * - Does NOT show when navigating between pages
+ * - Minimum display time: 3.5 seconds for cinematic feel
+ * - Holds at 90% progress briefly for premium effect
+ * - Locks body scroll while active
+ * - Smooth exit animation with reduced blur for clean transition
+ * 
+ * Technical Details:
+ * - useRef guard prevents React Strict Mode double-execution
+ * - useMemo for particle positions (prevents recalculation on every render)
+ * - Progress capped at 100 to prevent overshoot
+ * - SSR-safe with isMounted check
+ * - Cleanup restores body scroll on unmount
+ */
+
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import Image from 'next/image';
 
+const MINIMUM_DISPLAY_TIME = 3500; // 3.5 seconds minimum
+const PROGRESS_INCREMENT = 2; // Slower increments (2% instead of 10%)
+const PROGRESS_INTERVAL = 70; // Slower interval (70ms instead of 150ms)
+const HOLD_AT_90_DURATION = 600; // Hold at 90% for premium feel
+
 export default function LoadingScreen() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+  
+  // Prevent double initialization in React Strict Mode
+  const hasInitialized = useRef(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Generate particle positions once and memoize them
+  const particlePositions = useMemo(() => {
+    return Array.from({ length: 20 }, () => ({
+      initialX: Math.random() * 1920,
+      initialY: 1130,
+      targetX: Math.random() * 1920,
+      duration: Math.random() * 10 + 10,
+      delay: Math.random() * 5,
+    }));
+  }, []);
 
   useEffect(() => {
+    // Prevent double execution in React Strict Mode
+    if (hasInitialized.current) return;
+    hasInitialized.current = true;
+
+    // Only run on client side
+    setIsMounted(true);
+    
     // Check if user has already seen the loading screen in this session
     const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
     
-    if (hasSeenLoader) {
+    if (hasSeenLoader === 'true') {
+      // User has already seen the loader, don't show it again
       setIsLoading(false);
       return;
     }
 
-    // Simulate loading progress
-    const interval = setInterval(() => {
+    // First time in this session - show the boot animation
+    setIsLoading(true);
+    
+    // Lock body scroll while loader is active
+    document.body.style.overflow = 'hidden';
+    
+    const startTime = Date.now();
+    let hasHeldAt90 = false;
+
+    // Smooth progress animation
+    intervalRef.current = setInterval(() => {
       setProgress((prev) => {
+        // Hold at 90% for premium feel
+        if (prev >= 90 && prev < 100 && !hasHeldAt90) {
+          hasHeldAt90 = true;
+          setTimeout(() => {
+            setProgress(100);
+          }, HOLD_AT_90_DURATION);
+          return 90;
+        }
+
         if (prev >= 100) {
-          clearInterval(interval);
+          if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+          }
+          
+          // Calculate remaining time to meet minimum display duration
+          const elapsedTime = Date.now() - startTime;
+          const remainingTime = Math.max(0, MINIMUM_DISPLAY_TIME - elapsedTime);
+          
+          // Wait for remaining time + extra delay for cinematic effect
           setTimeout(() => {
             setIsLoading(false);
+            // Restore body scroll
+            document.body.style.overflow = '';
             // Mark that user has seen the loader for this session
             sessionStorage.setItem('hasSeenLoader', 'true');
-          }, 500);
+          }, remainingTime + 600); // Reduced from 800ms to 600ms for cleaner exit
+          
           return 100;
         }
-        return prev + 10;
+        
+        // Prevent overshooting 100
+        return Math.min(prev + PROGRESS_INCREMENT, 100);
       });
-    }, 150);
+    }, PROGRESS_INTERVAL);
 
-    return () => clearInterval(interval);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      // Restore body scroll on cleanup
+      document.body.style.overflow = '';
+    };
   }, []);
 
+  // Don't render anything until mounted (prevents SSR issues)
+  if (!isMounted) {
+    return null;
+  }
+
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isLoading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.1 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          exit={{ 
+            opacity: 0, 
+            scale: 1.03,
+            filter: "blur(4px)" // Reduced blur for cleaner exit
+          }}
+          transition={{ 
+            duration: 0.9, // Reduced from 1.2s for snappier feel
+            ease: [0.43, 0.13, 0.23, 0.96]
+          }}
           className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
         >
           {/* Glassmorphism background */}
@@ -91,9 +196,13 @@ export default function LoadingScreen() {
 
           {/* Glass card container */}
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
+            initial={{ scale: 0.8, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.34, 1.56, 0.64, 1],
+              delay: 0.2 // Slight delay for dramatic entrance
+            }}
             className="relative z-10 glass-effect-light rounded-3xl p-12 md:p-16 max-w-md mx-4"
             style={{
               backdropFilter: 'blur(20px) saturate(180%)',
@@ -104,27 +213,37 @@ export default function LoadingScreen() {
             <div className="relative mb-8">
               {/* Glow effect behind logo */}
               <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [0.2, 0.5, 0.2],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 2.5,
                   repeat: Infinity,
                   ease: "easeInOut",
+                  delay: 0.5
                 }}
                 className="absolute inset-0 bg-gold blur-2xl"
               />
               
               {/* Logo */}
               <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
                 animate={{
+                  scale: 1,
+                  opacity: 1,
                   y: [0, -8, 0],
                 }}
                 transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
+                  scale: { duration: 0.6, ease: "easeOut", delay: 0.4 },
+                  opacity: { duration: 0.6, ease: "easeOut", delay: 0.4 },
+                  y: {
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1
+                  }
                 }}
                 className="relative"
               >
@@ -141,9 +260,9 @@ export default function LoadingScreen() {
 
             {/* Loading text */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
               className="text-center mb-6"
             >
               <motion.p
@@ -151,7 +270,7 @@ export default function LoadingScreen() {
                   opacity: [0.5, 1, 0.5],
                 }}
                 transition={{
-                  duration: 1.5,
+                  duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -166,7 +285,10 @@ export default function LoadingScreen() {
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.3 }}
+                transition={{ 
+                  duration: 0.5, 
+                  ease: [0.25, 0.46, 0.45, 0.94] // Smooth easing
+                }}
                 className="h-full bg-gradient-to-r from-gold via-gold-light to-gold rounded-full relative"
                 style={{
                   boxShadow: '0 0 20px rgba(184, 150, 12, 0.5)',
@@ -189,9 +311,9 @@ export default function LoadingScreen() {
 
             {/* Progress percentage */}
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
               className="mt-6 text-center font-playfair text-3xl font-bold text-gold"
               style={{
                 textShadow: '0 2px 10px rgba(184, 150, 12, 0.3)',
@@ -226,22 +348,22 @@ export default function LoadingScreen() {
           </motion.div>
 
           {/* Floating particles */}
-          {[...Array(20)].map((_, i) => (
+          {particlePositions.map((particle, i) => (
             <motion.div
               key={i}
               initial={{
-                x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1920,
-                y: typeof window !== 'undefined' ? window.innerHeight + 50 : 1130,
+                x: typeof window !== 'undefined' ? particle.initialX : particle.initialX,
+                y: typeof window !== 'undefined' ? particle.initialY : particle.initialY,
               }}
               animate={{
                 y: -50,
-                x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1920,
+                x: typeof window !== 'undefined' ? particle.targetX : particle.targetX,
               }}
               transition={{
-                duration: Math.random() * 10 + 10,
+                duration: particle.duration,
                 repeat: Infinity,
                 ease: "linear",
-                delay: Math.random() * 5,
+                delay: particle.delay,
               }}
               className="absolute w-1 h-1 bg-gold/30 rounded-full"
               style={{
