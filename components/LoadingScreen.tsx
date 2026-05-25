@@ -230,12 +230,12 @@ export default function LoadingScreen() {
             <motion.div
               key={i}
               initial={{
-                x: Math.random() * window.innerWidth,
-                y: window.innerHeight + 50,
+                x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1920,
+                y: typeof window !== 'undefined' ? window.innerHeight + 50 : 1130,
               }}
               animate={{
                 y: -50,
-                x: Math.random() * window.innerWidth,
+                x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1920,
               }}
               transition={{
                 duration: Math.random() * 10 + 10,
