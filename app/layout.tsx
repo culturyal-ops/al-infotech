@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Cormorant_Garamond, Marcellus, Lato } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import LoadingScreen from "@/components/LoadingScreen";
@@ -106,6 +108,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
     <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${marcellus.variable} ${lato.variable}`} suppressHydrationWarning>
       <head>
@@ -127,6 +131,8 @@ export default function RootLayout({
             {children}
           </SmoothScroll>
         </div>
+        {gaId && <GoogleAnalytics gaId={gaId} />}
+        <SpeedInsights />
       </body>
     </html>
   );
