@@ -34,11 +34,17 @@ export default function Navbar() {
 
   // Calculate dynamic styles based on scroll
   const navbarBg = scrolled 
-    ? `rgba(253, 250, 245, ${0.95 + scrollProgress * 0.05})`
-    : 'transparent';
+    ? `rgba(253, 250, 245, ${0.7 + scrollProgress * 0.2})`
+    : 'rgba(0, 0, 0, 0.1)';
   
-  const navbarBlur = `blur(${scrollProgress * 12}px)`;
-  const navbarShadow = `0 2px ${8 + scrollProgress * 12}px rgba(26, 58, 42, ${scrollProgress * 0.08})`;
+  const navbarBlur = `blur(${scrolled ? 16 + scrollProgress * 8 : 8}px)`;
+  const navbarShadow = scrolled 
+    ? `0 8px ${16 + scrollProgress * 16}px rgba(26, 58, 42, ${0.08 + scrollProgress * 0.08}), inset 0 1px 0 rgba(255, 255, 255, ${0.1 + scrollProgress * 0.2})`
+    : '0 4px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
+  
+  const borderColor = scrolled
+    ? `rgba(232, 224, 208, ${0.3 + scrollProgress * 0.4})`
+    : 'rgba(255, 255, 255, 0.1)';
 
   return (
     <>
@@ -46,17 +52,27 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-          scrolled ? 'border-b border-border' : ''
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-400"
         style={{
           backgroundColor: navbarBg,
           backdropFilter: navbarBlur,
           WebkitBackdropFilter: navbarBlur,
-          boxShadow: scrolled ? navbarShadow : 'none',
+          boxShadow: navbarShadow,
+          borderBottom: `1px solid ${borderColor}`,
         }}
       >
-        <div className="container-custom">
+        {/* Subtle gradient overlay for liquid glass effect */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: scrolled
+              ? 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)'
+              : 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)',
+            opacity: 0.5 + scrollProgress * 0.5,
+          }}
+        />
+        
+        <div className="container-custom relative z-10">
           <div className="flex items-center justify-between py-6">
             {/* Logo */}
             <a 
