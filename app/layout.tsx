@@ -72,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${marcellus.variable} ${lato.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${marcellus.variable} ${lato.variable}`} suppressHydrationWarning>
       <head>
         <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet' />
         <script
@@ -83,12 +83,14 @@ export default function RootLayout({
       <body>
         <LoadingScreen />
         <ScrollProgress />
-        <a href="#main-content" className="skip-to-content">
-          Skip to main content
-        </a>
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <div id="app-content" style={{ visibility: 'hidden' }}>
+          <a href="#main-content" className="skip-to-content">
+            Skip to main content
+          </a>
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </div>
       </body>
     </html>
   );

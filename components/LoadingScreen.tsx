@@ -53,20 +53,31 @@ export default function LoadingScreen() {
     // Only run on client side
     setIsMounted(true);
     
+    // Get references to content elements
+    const content = document.getElementById('app-content');
+    const body = document.body;
+    
     // Check if user has already seen the loading screen in this session
     const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
     
     if (hasSeenLoader === 'true') {
-      // User has already seen the loader, don't show it again
+      // User has already seen the loader, show content immediately
       setIsLoading(false);
+      if (content) {
+        content.style.visibility = 'visible';
+      }
+      body.classList.add('content-loaded');
       return;
     }
 
     // First time in this session - show the boot animation
     setIsLoading(true);
     
-    // Lock body scroll while loader is active
-    document.body.style.overflow = 'hidden';
+    // Keep content hidden and lock body scroll while loader is active
+    if (content) {
+      content.style.visibility = 'hidden';
+    }
+    body.style.overflow = 'hidden';
     
     const startTime = Date.now();
     let hasHeldAt90 = false;
@@ -95,8 +106,12 @@ export default function LoadingScreen() {
           // Wait for remaining time + reduced delay for snappier exit
           setTimeout(() => {
             setIsLoading(false);
-            // Restore body scroll
-            document.body.style.overflow = '';
+            // Show content and restore body scroll
+            if (content) {
+              content.style.visibility = 'visible';
+            }
+            body.style.overflow = '';
+            body.classList.add('content-loaded');
             // Mark that user has seen the loader for this session
             sessionStorage.setItem('hasSeenLoader', 'true');
           }, remainingTime + 400); // Reduced from 600ms
@@ -114,7 +129,7 @@ export default function LoadingScreen() {
         clearInterval(intervalRef.current);
       }
       // Restore body scroll on cleanup
-      document.body.style.overflow = '';
+      body.style.overflow = '';
     };
   }, []);
 

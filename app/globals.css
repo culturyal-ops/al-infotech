@@ -27,6 +27,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: #050505;
 }
 
 /* Reduced motion support */
@@ -42,13 +43,18 @@ html {
 }
 
 body {
-  background-color: var(--bg);
+  background: #050505;
   color: var(--text);
   font-family: var(--font-lato), sans-serif;
   font-size: 16px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease;
+}
+
+body.content-loaded {
+  background-color: var(--bg);
 }
 
 /* Skip to content link for accessibility */
