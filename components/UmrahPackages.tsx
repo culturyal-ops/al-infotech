@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 
 export default function UmrahPackages() {
   const cardVariants = {
