@@ -29,11 +29,11 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with subtle zoom */}
       <motion.div
-        initial={{ scale: 1.05 }}
+        initial={{ scale: 1.08 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 20, ease: "linear" }}
         className="absolute inset-0"
       >
         <Image
@@ -44,12 +44,12 @@ export default function Hero() {
           className="object-cover"
           quality={90}
         />
-        {/* Rich Gradient Overlay */}
+        {/* Rich Gradient Overlay - Enhanced for better text readability */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to right, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.35) 65%, rgba(10,10,10,0.65) 100%)',
+              'linear-gradient(to right, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.45) 65%, rgba(10,10,10,0.72) 100%)',
           }}
         />
       </motion.div>
@@ -63,7 +63,7 @@ export default function Hero() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="lg:col-span-7 max-w-[820px]"
+              className="lg:col-span-7 max-w-2xl"
               style={{ paddingTop: '16vh' }}
             >
               {/* Eyebrow */}
@@ -77,10 +77,10 @@ export default function Hero() {
               {/* Headline */}
               <motion.h1
                 variants={itemVariants}
-                className="heading-hero text-white mb-8"
+                className="heading-hero mb-8"
               >
-                Your Journey <br />
-                of a Lifetime, <br />
+                <span className="text-white/95">Your Journey</span> <br />
+                <span className="text-white/95">of a Lifetime,</span> <br />
                 <span className="text-gold-light">Planned to</span> <br />
                 <span className="text-gold-light">Perfection.</span>
               </motion.h1>

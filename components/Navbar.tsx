@@ -32,19 +32,19 @@ export default function Navbar() {
     { label: 'CONTACT', href: '/#contact' },
   ];
 
-  // Calculate dynamic styles based on scroll
+  // Calculate dynamic styles based on scroll - Premium glass effect
   const navbarBg = scrolled 
-    ? `rgba(253, 250, 245, ${0.7 + scrollProgress * 0.2})`
-    : 'rgba(0, 0, 0, 0.1)';
+    ? `rgba(0, 0, 0, ${0.35 + scrollProgress * 0.15})` // More transparent, darker
+    : 'rgba(0, 0, 0, 0.25)';
   
-  const navbarBlur = `blur(${scrolled ? 16 + scrollProgress * 8 : 8}px)`;
+  const navbarBlur = `blur(${scrolled ? 20 + scrollProgress * 12 : 12}px)`; // More blur
   const navbarShadow = scrolled 
-    ? `0 8px ${16 + scrollProgress * 16}px rgba(26, 58, 42, ${0.08 + scrollProgress * 0.08}), inset 0 1px 0 rgba(255, 255, 255, ${0.1 + scrollProgress * 0.2})`
-    : '0 4px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
+    ? `0 8px ${16 + scrollProgress * 16}px rgba(0, 0, 0, ${0.15 + scrollProgress * 0.1}), inset 0 1px 0 rgba(255, 255, 255, ${0.08 + scrollProgress * 0.04})`
+    : '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)';
   
   const borderColor = scrolled
-    ? `rgba(232, 224, 208, ${0.3 + scrollProgress * 0.4})`
-    : 'rgba(255, 255, 255, 0.1)';
+    ? `rgba(255, 255, 255, ${0.08 + scrollProgress * 0.04})`
+    : 'rgba(255, 255, 255, 0.08)';
 
   return (
     <>
@@ -61,14 +61,14 @@ export default function Navbar() {
           borderBottom: `1px solid ${borderColor}`,
         }}
       >
-        {/* Subtle gradient overlay for liquid glass effect */}
+        {/* Subtle gradient overlay for premium glass effect */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
             background: scrolled
-              ? 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)'
-              : 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)',
-            opacity: 0.5 + scrollProgress * 0.5,
+              ? 'linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%)'
+              : 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%)',
+            opacity: 0.4 + scrollProgress * 0.3,
           }}
         />
         
@@ -99,10 +99,10 @@ export default function Navbar() {
                   key={index}
                   href={link.href}
                   className={`nav-link relative group transition-colors duration-300 font-medium text-sm link-underline ${
-                    scrolled ? 'text-text hover:text-green' : 'text-white hover:text-gold'
+                    scrolled ? 'text-white/90 hover:text-gold' : 'text-white/95 hover:text-gold'
                   }`}
                   style={{
-                    textShadow: scrolled ? 'none' : '0 1px 8px rgba(0,0,0,0.5)'
+                    textShadow: scrolled ? '0 1px 4px rgba(0,0,0,0.3)' : '0 1px 8px rgba(0,0,0,0.5)'
                   }}
                 >
                   {link.label}
