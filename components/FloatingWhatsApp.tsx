@@ -2,11 +2,12 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, ArrowUp } from 'lucide-react';
 
 export default function FloatingWhatsApp() {
   const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     // Show button after 2 seconds
@@ -17,11 +18,26 @@ export default function FloatingWhatsApp() {
       setTimeout(() => setShowTooltip(false), 3000);
     }, 2000);
 
-    return () => clearTimeout(timer);
+    // Track scroll position for scroll-to-top button
+    const handleScroll = () => {
+      // Show scroll-to-top button after scrolling 500px
+      setShowScrollTop(window.scrollY > 500);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  const handleClick = () => {
+  const handleWhatsAppClick = () => {
     window.open('https://wa.me/918919990806?text=Hi, I would like to inquire about your packages', '_blank');
+  };
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -32,8 +48,27 @@ export default function FloatingWhatsApp() {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-          className="fixed bottom-6 right-6 z-50 md:hidden"
+          className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 md:hidden"
         >
+          {/* Scroll to Top Button */}
+          <AnimatePresence>
+            {showScrollTop && (
+              <motion.button
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                onClick={handleScrollToTop}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-12 h-12 bg-gold rounded-full shadow-button flex items-center justify-center"
+                aria-label="Scroll to top"
+              >
+                <ArrowUp className="w-5 h-5 text-white" strokeWidth={2.5} />
+              </motion.button>
+            )}
+          </AnimatePresence>
+
           {/* Tooltip */}
           <AnimatePresence>
             {showTooltip && (
@@ -59,7 +94,7 @@ export default function FloatingWhatsApp() {
 
           {/* WhatsApp Button */}
           <motion.button
-            onClick={handleClick}
+            onClick={handleWhatsAppClick}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className="relative w-16 h-16 bg-whatsapp rounded-full shadow-button-hover flex items-center justify-center group"
