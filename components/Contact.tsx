@@ -108,7 +108,7 @@ export default function Contact() {
                   href="https://facebook.com/alinfotechtoursandtravels"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300"
+                  className="social-icon w-10 h-10 rounded-full border border-white/40 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300"
                   aria-label="Facebook"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -119,7 +119,7 @@ export default function Contact() {
                   href="https://instagram.com/alinfotechtoursandtravels"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300"
+                  className="social-icon w-10 h-10 rounded-full border border-white/40 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300"
                   aria-label="Instagram"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -132,7 +132,7 @@ export default function Contact() {
                   href="https://youtube.com/@alinfotechtoursandtravels"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300"
+                  className="social-icon w-10 h-10 rounded-full border border-white/40 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300"
                   aria-label="YouTube"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -143,7 +143,7 @@ export default function Contact() {
                   href="https://wa.me/918919990806"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300"
+                  className="social-icon w-10 h-10 rounded-full border border-white/40 flex items-center justify-center hover:border-gold-light hover:text-gold-light transition-all duration-300"
                   aria-label="WhatsApp"
                 >
                   <svg

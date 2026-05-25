@@ -41,7 +41,7 @@ export default function Footer() {
                 href="https://m.youtube.com/@alinfotechtoursandtravels"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
+                className="social-icon w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
                 aria-label="YouTube"
               >
                 <svg className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
+                className="social-icon w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ export default function Footer() {
                 href="https://www.instagram.com/alinfotechtoursandtravels/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
+                className="social-icon w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ export default function Footer() {
                 href="https://wa.me/918919990806"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
+                className="social-icon w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
                 aria-label="WhatsApp"
               >
                 <svg className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -93,7 +93,7 @@ export default function Footer() {
                 href="https://revol-q.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
+                className="social-icon w-10 h-10 border border-white/20 hover:border-gold flex items-center justify-center transition-all duration-300 group"
                 aria-label="RevolQ"
               >
                 <svg className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -118,7 +118,7 @@ export default function Footer() {
                 <a
                   key={index}
                   href={link.href}
-                  className="text-white/50 hover:text-gold transition-colors duration-300 text-sm"
+                  className="text-white/50 hover:text-gold transition-colors duration-300 text-sm link-underline"
                 >
                   {link.label}
                 </a>
@@ -151,8 +151,8 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                 </svg>
                 <div className="text-white/50">
-                  <a href="tel:+918919990806" className="block hover:text-gold transition-colors">+91 89199 90806</a>
-                  <a href="tel:+917896550806" className="block hover:text-gold transition-colors">+91 78965 50806</a>
+                  <a href="tel:+918919990806" className="block hover:text-gold transition-colors link-underline">+91 89199 90806</a>
+                  <a href="tel:+917896550806" className="block hover:text-gold transition-colors link-underline">+91 78965 50806</a>
                 </div>
               </div>
 
@@ -162,7 +162,7 @@ export default function Footer() {
                 </svg>
                 <a
                   href="mailto:alinfotechtours@gmail.com"
-                  className="text-white/50 hover:text-gold transition-colors"
+                  className="text-white/50 hover:text-gold transition-colors link-underline"
                 >
                   alinfotechtours@gmail.com
                 </a>

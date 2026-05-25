@@ -7,11 +7,15 @@ import Image from 'next/image';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 50);
+      // Calculate scroll progress for progressive blur (0 to 1)
+      setScrollProgress(Math.min(scrollY / 200, 1));
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -28,6 +32,14 @@ export default function Navbar() {
     { label: 'CONTACT', href: '/#contact' },
   ];
 
+  // Calculate dynamic styles based on scroll
+  const navbarBg = scrolled 
+    ? `rgba(253, 250, 245, ${0.95 + scrollProgress * 0.05})`
+    : 'transparent';
+  
+  const navbarBlur = `blur(${scrollProgress * 12}px)`;
+  const navbarShadow = `0 2px ${8 + scrollProgress * 12}px rgba(26, 58, 42, ${scrollProgress * 0.08})`;
+
   return (
     <>
       <motion.nav
@@ -35,32 +47,42 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-          scrolled
-            ? 'bg-bg/98 backdrop-blur-xl border-b border-border shadow-sm'
-            : 'bg-transparent'
+          scrolled ? 'border-b border-border' : ''
         }`}
+        style={{
+          backgroundColor: navbarBg,
+          backdropFilter: navbarBlur,
+          WebkitBackdropFilter: navbarBlur,
+          boxShadow: scrolled ? navbarShadow : 'none',
+        }}
       >
         <div className="container-custom">
           <div className="flex items-center justify-between py-6">
-            {/* Logo - closer to edge */}
-            <a href="/" className="flex items-center -ml-2">
+            {/* Logo */}
+            <a 
+              href="/" 
+              className="flex items-center -ml-2 focus-visible:outline-gold focus-visible:outline-offset-4 rounded-sm"
+            >
               <Image 
                 src="/images/logo.png" 
                 alt="AL-INFOTECH Tours & Travels" 
                 width={200}
                 height={85}
-                className="h-16 lg:h-20 w-auto object-contain"
+                className="h-16 lg:h-20 w-auto object-contain transition-all duration-400"
+                style={{
+                  height: scrolled ? '60px' : '80px',
+                }}
                 priority
               />
             </a>
 
-            {/* Desktop Nav Links - TIGHTER SPACING */}
-            <div className="hidden md:flex items-center gap-8">
+            {/* Desktop Nav Links */}
+            <div className="hidden md:flex items-center gap-7">
               {navLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
-                  className={`nav-link relative group transition-colors duration-300 font-medium text-sm ${
+                  className={`nav-link relative group transition-colors duration-300 font-medium text-sm link-underline ${
                     scrolled ? 'text-text hover:text-green' : 'text-white hover:text-gold'
                   }`}
                   style={{
@@ -68,7 +90,6 @@ export default function Navbar() {
                   }}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300 origin-left" />
                 </a>
               ))}
             </div>
@@ -83,10 +104,11 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`md:hidden p-2 z-50 transition-colors duration-300 ${
+              className={`md:hidden p-2 z-50 transition-colors duration-300 rounded-sm focus-visible:outline-gold focus-visible:outline-offset-4 ${
                 mobileMenuOpen ? 'text-green' : scrolled ? 'text-green' : 'text-white'
               }`}
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
               style={{
                 textShadow: !scrolled && !mobileMenuOpen ? '0 1px 8px rgba(0,0,0,0.5)' : 'none'
               }}
@@ -123,7 +145,7 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-playfair text-3xl sm:text-4xl text-green hover:text-gold transition-colors duration-300 block py-4"
+                    className="font-playfair text-3xl sm:text-4xl text-green hover:text-gold transition-colors duration-300 block py-4 focus-visible:outline-gold focus-visible:outline-offset-4 rounded-sm"
                   >
                     {link.label}
                   </a>

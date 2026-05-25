@@ -77,12 +77,7 @@ export default function Hero() {
               {/* Headline */}
               <motion.h1
                 variants={itemVariants}
-                className="font-playfair font-bold text-white mb-8"
-                style={{
-                  fontSize: 'clamp(3rem, 5.8vw, 6rem)',
-                  lineHeight: '0.92',
-                  letterSpacing: '-0.02em',
-                }}
+                className="heading-hero text-white mb-8"
               >
                 Your Journey <br />
                 of a Lifetime, <br />

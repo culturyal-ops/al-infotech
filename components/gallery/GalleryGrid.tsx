@@ -29,32 +29,57 @@ const categories = [
 export default function GalleryGrid({ images }: GalleryGridProps) {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
   const filteredImages = activeCategory === 'all' 
     ? images 
     : images.filter(img => img.category === activeCategory);
+
+  // Count images per category
+  const getCategoryCount = (categoryId: string) => {
+    if (categoryId === 'all') return images.length;
+    return images.filter(img => img.category === categoryId).length;
+  };
+
+  const handleImageLoad = (imageId: string) => {
+    setLoadedImages(prev => new Set(prev).add(imageId));
+  };
 
   return (
     <>
       {/* Filter Navigation - Softer, more curated */}
       <div className="container-custom mb-12 md:mb-20">
         <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`
-                px-6 py-2.5 rounded-full text-sm font-medium tracking-wide
-                transition-all duration-300 ease-out
-                ${activeCategory === cat.id
-                  ? 'bg-green text-surface shadow-md scale-105'
-                  : 'bg-surface text-text-muted border border-border hover:border-green hover:text-green hover:shadow-sm'
-                }
-              `}
-            >
-              {cat.label}
-            </button>
-          ))}
+          {categories.map((cat) => {
+            const count = getCategoryCount(cat.id);
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`
+                  px-6 py-2.5 rounded-full text-sm font-medium tracking-wide
+                  transition-all duration-300 ease-out relative
+                  ${activeCategory === cat.id
+                    ? 'bg-green text-surface shadow-md scale-105'
+                    : 'bg-surface text-text-muted border border-border hover:border-green hover:text-green hover:shadow-sm'
+                  }
+                `}
+              >
+                <span className="flex items-center gap-2">
+                  {cat.label}
+                  <span className={`
+                    text-xs px-2 py-0.5 rounded-full
+                    ${activeCategory === cat.id
+                      ? 'bg-surface/20 text-surface'
+                      : 'bg-bg-section text-text-muted'
+                    }
+                  `}>
+                    {count}
+                  </span>
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -84,12 +109,20 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
               >
                 {/* Graceful image with fallback */}
                 <div className="relative w-full h-full">
+                  {/* Skeleton loader */}
+                  {!loadedImages.has(image.id) && (
+                    <div className="absolute inset-0 skeleton" />
+                  )}
+                  
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
-                    className="object-cover transition-all duration-700 group-hover:scale-110"
+                    className={`object-cover transition-all duration-700 group-hover:scale-110 ${
+                      loadedImages.has(image.id) ? 'opacity-100' : 'opacity-0'
+                    }`}
                     sizes={isLarge ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
+                    onLoad={() => handleImageLoad(image.id)}
                     onError={(e) => {
                       // Graceful fallback - hide broken image, show placeholder
                       const target = e.target as HTMLImageElement;
