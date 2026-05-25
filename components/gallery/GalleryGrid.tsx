@@ -37,7 +37,7 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
   return (
     <>
       {/* Filter Navigation - Softer, more curated */}
-      <div className="container-custom mb-16">
+      <div className="container-custom mb-12 md:mb-20">
         <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
           {categories.map((cat) => (
             <button
