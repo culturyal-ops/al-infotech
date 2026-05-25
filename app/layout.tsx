@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import LoadingScreen from "@/components/LoadingScreen";
 import ScrollProgress from "@/components/ScrollProgress";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -35,9 +36,43 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://alinfotech.vercel.app'),
   title: "AL-INFOTECH Tours and Travels | Umrah & Kashmir Packages",
   description: "First licensed Umrah operator in Andhra Pradesh & Telangana. Handcrafted packages for pilgrims and travelers. Based in Proddatur, Kadapa.",
   keywords: ["Umrah packages", "Kashmir tours", "AL-INFOTECH", "Proddatur travel agency", "Andhra Pradesh Umrah", "NUSUK certified"],
+  openGraph: {
+    title: "AL-INFOTECH Tours and Travels | Umrah & Kashmir Packages",
+    description: "First licensed Umrah operator in Andhra Pradesh & Telangana. NUSUK certified. Trusted since 2018.",
+    url: "https://alinfotech.vercel.app",
+    siteName: "AL-INFOTECH Tours and Travels",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "AL-INFOTECH Tours and Travels",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AL-INFOTECH Tours and Travels | Umrah & Kashmir Packages",
+    description: "First licensed Umrah operator in Andhra Pradesh & Telangana. NUSUK certified.",
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 // Schema.org JSON-LD for SEO
@@ -83,6 +118,7 @@ export default function RootLayout({
       <body>
         <LoadingScreen />
         <ScrollProgress />
+        <FloatingWhatsApp />
         <div id="app-content" style={{ visibility: 'hidden' }}>
           <a href="#main-content" className="skip-to-content">
             Skip to main content

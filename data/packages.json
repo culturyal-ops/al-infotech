@@ -1,0 +1,91 @@
+{
+  "umrahPackages": [
+    {
+      "id": "umrah-budget",
+      "name": "Budget Package",
+      "type": "umrah",
+      "price": 79000,
+      "currency": "INR",
+      "duration": "14 Days",
+      "departure": "June/July",
+      "badges": [
+        {
+          "text": "NUSUK CERTIFIED",
+          "type": "primary"
+        },
+        {
+          "text": "VIA FLIGHT",
+          "type": "secondary"
+        }
+      ],
+      "hotels": {
+        "makkah": "900 meters from Haram",
+        "madina": "Around Bilal Masjid"
+      },
+      "inclusions": [
+        "Visa Ticket with Insurance",
+        "Accommodation",
+        "3 Time Hyderabadi Buffet",
+        "AC Transportation",
+        "Airport to Airport Service",
+        "Luggage and Shoulder Bag Free"
+      ]
+    },
+    {
+      "id": "umrah-premium",
+      "name": "Premium Package",
+      "type": "umrah",
+      "price": 95000,
+      "currency": "INR",
+      "duration": "14 Days",
+      "departure": "June/July",
+      "featured": true,
+      "badges": [
+        {
+          "text": "DIRECT FLIGHT",
+          "type": "premium"
+        }
+      ],
+      "hotels": {
+        "makkah": "300m from Haram",
+        "madina": "200m from Masjid Nabawi"
+      },
+      "inclusions": [
+        "Airfare + Visa + Food + Transport",
+        "Hotel Accommodation",
+        "Ziyarat of Makkah & Madina",
+        "Ziyarat of Badr",
+        "Umrah from Masjid Zohrana",
+        "Handbag + Passport Bag + Chappal Bag",
+        "Laundry + Zamzam",
+        "Tour Guide"
+      ]
+    }
+  ],
+  "kashmirPackages": [
+    {
+      "id": "kashmir-standard",
+      "name": "Kashmir Paradise Tour",
+      "type": "domestic",
+      "price": 45000,
+      "currency": "INR",
+      "duration": "7 Days / 6 Nights",
+      "departure": "Year Round",
+      "destinations": [
+        "Srinagar",
+        "Gulmarg",
+        "Pahalgam",
+        "Sonamarg"
+      ],
+      "inclusions": [
+        "Accommodation in Houseboats & Hotels",
+        "All Meals (Breakfast, Lunch, Dinner)",
+        "Private AC Transportation",
+        "Shikara Ride in Dal Lake",
+        "Gondola Ride in Gulmarg",
+        "All Sightseeing as per Itinerary",
+        "Professional Tour Guide"
+      ]
+    }
+  ]
+}

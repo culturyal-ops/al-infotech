@@ -11,12 +11,16 @@ interface StatProps {
 }
 
 function StatCounter({ end, suffix, label, delay }: StatProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end); // Initialize with target value
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || hasAnimated) return;
+
+    setHasAnimated(true);
+    setCount(0); // Reset to 0 when animation starts
 
     const duration = 2000; // 2 seconds
     const steps = 60;
@@ -35,7 +39,7 @@ function StatCounter({ end, suffix, label, delay }: StatProps) {
     }, stepDuration);
 
     return () => clearInterval(timer);
-  }, [isInView, end]);
+  }, [isInView, end, hasAnimated]);
 
   return (
     <motion.div

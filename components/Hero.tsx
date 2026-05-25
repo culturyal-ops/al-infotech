@@ -43,6 +43,7 @@ export default function Hero() {
           priority
           className="object-cover"
           quality={90}
+          sizes="100vw"
         />
         {/* Rich Gradient Overlay - Enhanced for better text readability */}
         <div

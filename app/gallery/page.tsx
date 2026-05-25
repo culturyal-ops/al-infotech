@@ -3,9 +3,10 @@ import Footer from '@/components/Footer';
 import GalleryHero from '@/components/gallery/GalleryHero';
 import GalleryGrid, { GalleryImage } from '@/components/gallery/GalleryGrid';
 import Contact from '@/components/Contact';
+import galleryData from '@/data/gallery.json';
 
-// Generate gallery images from organized folders
-const galleryImages: GalleryImage[] = [
+// Fallback: Generate gallery images from organized folders if JSON is empty
+const defaultGalleryImages: GalleryImage[] = [
   // Food images (29 images)
   ...Array.from({ length: 29 }, (_, i) => ({
     id: `food-${i}`,
@@ -69,6 +70,11 @@ const galleryImages: GalleryImage[] = [
     caption: 'Blessed moments in the holy cities'
   })),
 ];
+
+// Use JSON data if available, otherwise use default
+const galleryImages: GalleryImage[] = galleryData.images.length > 0 
+  ? galleryData.images as GalleryImage[]
+  : defaultGalleryImages;
 
 export const metadata = {
   title: 'Gallery - AL Infotech Tours & Travels',

@@ -1,7 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { Check } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,14 +13,40 @@ export default function Contact() {
     month: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const whatsappMessage = `Hi, I'm ${formData.name}. I'm interested in ${formData.package}. Travel Month: ${formData.month}. ${formData.message}`;
-    const whatsappUrl = `https://wa.me/918919990806?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
-    window.open(whatsappUrl, '_blank');
+    setIsSubmitting(true);
+    
+    // Simulate validation
+    setTimeout(() => {
+      const whatsappMessage = `Hi, I'm ${formData.name}. I'm interested in ${formData.package}. Travel Month: ${formData.month}. ${formData.message}`;
+      const whatsappUrl = `https://wa.me/918919990806?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
+      
+      setSubmitStatus('success');
+      setIsSubmitting(false);
+      
+      // Open WhatsApp after showing success message
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        // Reset form after 2 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle');
+          setFormData({
+            name: '',
+            phone: '',
+            email: '',
+            package: '',
+            month: '',
+            message: '',
+          });
+        }, 2000);
+      }, 500);
+    }, 800);
   };
 
   const handleChange = (
@@ -245,9 +272,43 @@ export default function Contact() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary w-full">
-                  SUBMIT ENQUIRY
+                <button 
+                  type="submit" 
+                  className="btn-primary w-full relative"
+                  disabled={isSubmitting || submitStatus === 'success'}
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      SUBMITTING...
+                    </span>
+                  ) : submitStatus === 'success' ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <Check className="w-5 h-5" />
+                      REDIRECTING TO WHATSAPP...
+                    </span>
+                  ) : (
+                    'SUBMIT ENQUIRY'
+                  )}
                 </button>
+
+                {/* Success/Error Toast */}
+                <AnimatePresence>
+                  {submitStatus === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="flex items-center gap-2 p-3 bg-success-light text-success rounded-lg text-sm"
+                    >
+                      <Check className="w-4 h-4" />
+                      <span className="font-lato">Form submitted! Opening WhatsApp...</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
                 <div className="text-center">
                   <p className="font-lato text-text-muted text-sm mb-4">— or —</p>

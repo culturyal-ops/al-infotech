@@ -65,8 +65,10 @@ export default function LoadingScreen() {
       setIsLoading(false);
       if (content) {
         content.style.visibility = 'visible';
+        content.style.opacity = '1';
       }
       body.classList.add('content-loaded');
+      body.style.overflow = '';
       return;
     }
 

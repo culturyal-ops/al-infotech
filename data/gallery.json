@@ -1,0 +1,60 @@
+{
+  "images": [
+    {
+      "id": "umrah-1",
+      "src": "/images/gallery/umrah-1.jpg",
+      "alt": "Pilgrims at Masjid al-Haram",
+      "category": "umrah",
+      "caption": "Our pilgrims performing Tawaf at the Holy Kaaba"
+    },
+    {
+      "id": "umrah-2",
+      "src": "/images/gallery/umrah-2.jpg",
+      "alt": "Group photo at Masjid Nabawi",
+      "category": "umrah",
+      "caption": "Blessed moments at the Prophet's Mosque"
+    },
+    {
+      "id": "hotel-1",
+      "src": "/images/gallery/hotel-1.jpg",
+      "alt": "Hotel room in Makkah",
+      "category": "hotels",
+      "caption": "Comfortable accommodation near Haram"
+    },
+    {
+      "id": "food-1",
+      "src": "/images/gallery/food-1.jpg",
+      "alt": "Hyderabadi buffet spread",
+      "category": "food",
+      "caption": "Authentic Hyderabadi cuisine for our guests"
+    },
+    {
+      "id": "transport-1",
+      "src": "/images/gallery/transport-1.jpg",
+      "alt": "AC bus for pilgrims",
+      "category": "transport",
+      "caption": "Comfortable AC transportation"
+    },
+    {
+      "id": "group-1",
+      "src": "/images/gallery/group-1.jpg",
+      "alt": "Group of pilgrims",
+      "category": "groups",
+      "caption": "Our happy travelers from Proddatur"
+    },
+    {
+      "id": "landmark-1",
+      "src": "/images/gallery/landmark-1.jpg",
+      "alt": "Mount Uhud",
+      "category": "landmarks",
+      "caption": "Historical Ziyarat at Mount Uhud"
+    },
+    {
+      "id": "hajj-1",
+      "src": "/images/gallery/hajj-1.jpg",
+      "alt": "Hajj pilgrims at Arafat",
+      "category": "hajj",
+      "caption": "Day of Arafat - The most blessed day"
+    }
+  ]
+}
