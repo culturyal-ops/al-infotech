@@ -4,51 +4,70 @@ import GalleryHero from '@/components/gallery/GalleryHero';
 import GalleryGrid, { GalleryImage } from '@/components/gallery/GalleryGrid';
 import Contact from '@/components/Contact';
 
-// Placeholder images - replace with real images when client provides them
+// Generate gallery images from organized folders
 const galleryImages: GalleryImage[] = [
-  {
-    id: '1',
-    src: '/images/gallery/umrah/placeholder-1.jpg',
-    alt: 'Pilgrims at Masjid al-Haram',
-    category: 'umrah',
-    caption: 'Guided group at Masjid al-Haram'
-  },
-  {
-    id: '2',
-    src: '/images/gallery/hotels/placeholder-1.jpg',
-    alt: 'Hotel room near Haram',
-    category: 'hotels',
-    caption: 'Comfortable accommodations near the Haram'
-  },
-  {
-    id: '3',
-    src: '/images/gallery/food/placeholder-1.jpg',
-    alt: 'Traditional meals',
-    category: 'food',
+  // Food images (29 images)
+  ...Array.from({ length: 29 }, (_, i) => ({
+    id: `food-${i}`,
+    src: `/images/gallery/food/food-${String(i).padStart(2, '0')}.jpg`,
+    alt: `Delicious meal ${i + 1}`,
+    category: 'food' as const,
     caption: 'Nutritious meals throughout your journey'
-  },
-  {
-    id: '4',
-    src: '/images/gallery/groups/placeholder-1.jpg',
-    alt: 'Group photo',
-    category: 'groups',
+  })),
+  
+  // Hajj images (5 images)
+  ...Array.from({ length: 5 }, (_, i) => ({
+    id: `hajj-${i}`,
+    src: `/images/gallery/hajj/hajj-${String(i + 1).padStart(2, '0')}.jpg`,
+    alt: `Hajj journey ${i + 1}`,
+    category: 'hajj' as const,
+    caption: 'Sacred moments from Hajj'
+  })),
+  
+  // Hajj people images (8 images)
+  ...Array.from({ length: 8 }, (_, i) => ({
+    id: `hajj-people-${i}`,
+    src: `/images/gallery/hajj/hajj-people-${String(i + 1).padStart(2, '0')}.jpg`,
+    alt: `Hajj pilgrims ${i + 1}`,
+    category: 'groups' as const,
+    caption: 'Our pilgrims during Hajj'
+  })),
+  
+  // People images (2 images)
+  ...Array.from({ length: 2 }, (_, i) => ({
+    id: `people-${i}`,
+    src: `/images/gallery/people/people-${String(i + 1).padStart(2, '0')}.jpg`,
+    alt: `Pilgrims ${i + 1}`,
+    category: 'groups' as const,
+    caption: 'Our valued pilgrims'
+  })),
+  
+  // People airport images (4 images)
+  ...Array.from({ length: 4 }, (_, i) => ({
+    id: `people-airport-${i}`,
+    src: `/images/gallery/people/people-airport-${String(i + 1).padStart(2, '0')}.jpg`,
+    alt: `Airport departure ${i + 1}`,
+    category: 'transport' as const,
+    caption: 'Smooth airport departures'
+  })),
+  
+  // People group images (5 images)
+  ...Array.from({ length: 5 }, (_, i) => ({
+    id: `people-group-${i}`,
+    src: `/images/gallery/people/people-group-${String(i + 1).padStart(2, '0')}.jpg`,
+    alt: `Group photo ${i + 1}`,
+    category: 'groups' as const,
     caption: 'Our pilgrims from Proddatur'
-  },
-  {
-    id: '5',
-    src: '/images/gallery/transport/placeholder-1.jpg',
-    alt: 'Comfortable buses',
-    category: 'transport',
-    caption: 'Air-conditioned transport for all journeys'
-  },
-  {
-    id: '6',
-    src: '/images/gallery/landmarks/placeholder-1.jpg',
-    alt: 'Masjid al-Nabawi',
-    category: 'landmarks',
-    caption: 'The Prophet\'s Mosque in Madinah'
-  },
-  // Add more placeholder images as needed
+  })),
+  
+  // People hajj images (7 images)
+  ...Array.from({ length: 7 }, (_, i) => ({
+    id: `people-hajj-${i}`,
+    src: `/images/gallery/people/people-hajj-${String(i + 1).padStart(2, '0')}.jpg`,
+    alt: `Hajj pilgrims ${i + 1}`,
+    category: 'umrah' as const,
+    caption: 'Blessed moments in the holy cities'
+  })),
 ];
 
 export const metadata = {
