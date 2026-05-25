@@ -9,12 +9,24 @@ export default function LoadingScreen() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Check if user has already seen the loading screen in this session
+    const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
+    
+    if (hasSeenLoader) {
+      setIsLoading(false);
+      return;
+    }
+
     // Simulate loading progress
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setIsLoading(false), 500);
+          setTimeout(() => {
+            setIsLoading(false);
+            // Mark that user has seen the loader for this session
+            sessionStorage.setItem('hasSeenLoader', 'true');
+          }, 500);
           return 100;
         }
         return prev + 10;
@@ -29,45 +41,85 @@ export default function LoadingScreen() {
       {isLoading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-bg via-bg-section to-gold-bg"
+          exit={{ opacity: 0, scale: 1.1 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
         >
-          {/* Animated background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 20% 50%, rgba(184, 150, 12, 0.3) 0%, transparent 50%),
-                               radial-gradient(circle at 80% 80%, rgba(26, 58, 42, 0.3) 0%, transparent 50%),
-                               radial-gradient(circle at 40% 20%, rgba(184, 150, 12, 0.2) 0%, transparent 50%)`,
-            }} />
+          {/* Glassmorphism background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-bg via-bg-section to-gold-bg">
+            {/* Animated blurred shapes for glass effect */}
+            <motion.div
+              animate={{
+                x: [0, 100, 0],
+                y: [0, -50, 0],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/20 rounded-full blur-3xl"
+            />
+            <motion.div
+              animate={{
+                x: [0, -80, 0],
+                y: [0, 100, 0],
+                scale: [1, 1.3, 1],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green/20 rounded-full blur-3xl"
+            />
+            <motion.div
+              animate={{
+                x: [0, 50, 0],
+                y: [0, -80, 0],
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold-light/15 rounded-full blur-3xl"
+            />
           </div>
 
-          <div className="relative z-10 flex flex-col items-center">
+          {/* Glass card container */}
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
+            className="relative z-10 glass-effect-light rounded-3xl p-12 md:p-16 max-w-md mx-4"
+            style={{
+              backdropFilter: 'blur(20px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            }}
+          >
             {/* Logo with animations */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
-              className="relative mb-8"
-            >
+            <div className="relative mb-8">
               {/* Glow effect behind logo */}
               <motion.div
                 animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.6, 0.3],
+                  scale: [1, 1.3, 1],
+                  opacity: [0.2, 0.5, 0.2],
                 }}
                 transition={{
                   duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute inset-0 bg-gold blur-3xl"
+                className="absolute inset-0 bg-gold blur-2xl"
               />
               
               {/* Logo */}
               <motion.div
                 animate={{
-                  y: [0, -10, 0],
+                  y: [0, -8, 0],
                 }}
                 transition={{
                   duration: 2,
@@ -81,11 +133,11 @@ export default function LoadingScreen() {
                   alt="AL-INFOTECH Tours & Travels"
                   width={300}
                   height={120}
-                  className="w-64 md:w-80 h-auto"
+                  className="w-full h-auto"
                   priority
                 />
               </motion.div>
-            </motion.div>
+            </div>
 
             {/* Loading text */}
             <motion.div
@@ -109,13 +161,16 @@ export default function LoadingScreen() {
               </motion.p>
             </motion.div>
 
-            {/* Progress bar */}
-            <div className="w-64 md:w-80 h-1 bg-border rounded-full overflow-hidden">
+            {/* Progress bar with glass effect */}
+            <div className="relative w-full h-2 bg-white/20 rounded-full overflow-hidden backdrop-blur-sm">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.3 }}
                 className="h-full bg-gradient-to-r from-gold via-gold-light to-gold rounded-full relative"
+                style={{
+                  boxShadow: '0 0 20px rgba(184, 150, 12, 0.5)',
+                }}
               >
                 {/* Shimmer effect */}
                 <motion.div
@@ -127,7 +182,7 @@ export default function LoadingScreen() {
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent"
                 />
               </motion.div>
             </div>
@@ -137,20 +192,23 @@ export default function LoadingScreen() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="mt-4 font-playfair text-2xl font-bold text-gold"
+              className="mt-6 text-center font-playfair text-3xl font-bold text-gold"
+              style={{
+                textShadow: '0 2px 10px rgba(184, 150, 12, 0.3)',
+              }}
             >
               {progress}%
             </motion.p>
 
-            {/* Decorative elements */}
-            <div className="absolute inset-0 pointer-events-none">
+            {/* Decorative glass orbs */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
               {[...Array(3)].map((_, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{
-                    opacity: [0, 0.3, 0],
-                    scale: [0, 2, 3],
+                    opacity: [0, 0.15, 0],
+                    scale: [0, 1.5, 2],
                   }}
                   transition={{
                     duration: 3,
@@ -158,11 +216,39 @@ export default function LoadingScreen() {
                     delay: i * 1,
                     ease: "easeOut",
                   }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-gold rounded-full"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-gold/30 rounded-full"
+                  style={{
+                    backdropFilter: 'blur(2px)',
+                  }}
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
+
+          {/* Floating particles */}
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: window.innerHeight + 50,
+              }}
+              animate={{
+                y: -50,
+                x: Math.random() * window.innerWidth,
+              }}
+              transition={{
+                duration: Math.random() * 10 + 10,
+                repeat: Infinity,
+                ease: "linear",
+                delay: Math.random() * 5,
+              }}
+              className="absolute w-1 h-1 bg-gold/30 rounded-full"
+              style={{
+                boxShadow: '0 0 10px rgba(184, 150, 12, 0.5)',
+              }}
+            />
+          ))}
         </motion.div>
       )}
     </AnimatePresence>
