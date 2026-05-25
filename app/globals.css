@@ -118,7 +118,19 @@ body {
   font-family: var(--font-playfair), serif;
   font-weight: 700;
   font-size: clamp(32px, 4vw, 48px);
-  color: var(--gold);
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    var(--gold-light) 25%,
+    var(--gold) 50%,
+    var(--gold-light) 75%,
+    var(--gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerPrice 3s linear infinite;
 }
 
 .label-small {
@@ -688,6 +700,85 @@ button:focus-visible {
   transform: translateY(-2px) scale(0.95);
 }
 
+/* Premium badge glow */
+.badge-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.badge-premium {
+  position: relative;
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Check icon animation */
+.check-animated {
+  animation: check-bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Magnetic button effect */
+.btn-magnetic {
+  transition: transform 0.2s ease-out;
+}
+
+/* Timeline connector animation */
+.timeline-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw-line 1s ease-out forwards;
+}
+
+/* Gradient overlay shift */
+.gradient-shift {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-shift::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 58, 42, 0.4) 0%,
+    rgba(184, 150, 12, 0.2) 50%,
+    rgba(26, 58, 42, 0.4) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gradient-shift:hover::before {
+  opacity: 1;
+}
+
+/* Pricing card selected state */
+.pricing-card-selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px var(--gold), 0 8px 32px rgba(184, 150, 12, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Section wave divider */
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+.wave-divider .shape-fill {
+  fill: var(--bg-section);
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
@@ -706,6 +797,58 @@ button:focus-visible {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes shimmerPrice {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(184, 150, 12, 0.5), 0 0 10px rgba(184, 150, 12, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(184, 150, 12, 0.8), 0 0 20px rgba(184, 150, 12, 0.5), 0 0 30px rgba(184, 150, 12, 0.3);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes check-bounce {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(-45deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
   }
 }
 

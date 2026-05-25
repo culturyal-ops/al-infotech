@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Playfair_Display, Cormorant_Garamond, Marcellus, Lato } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import LoadingScreen from "@/components/LoadingScreen";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -79,6 +81,8 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <LoadingScreen />
+        <ScrollProgress />
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>

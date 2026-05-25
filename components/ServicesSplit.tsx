@@ -43,7 +43,7 @@ export default function ServicesSplit() {
             viewport={{ once: true, margin: '-80px' }}
             className="card overflow-hidden group"
           >
-            <div className="relative h-[300px] overflow-hidden">
+            <div className="relative h-[300px] overflow-hidden gradient-shift">
               <Image
                 src="/images/umrah-kaaba.jpg"
                 alt="Sacred Journeys - Umrah Packages"
@@ -82,7 +82,7 @@ export default function ServicesSplit() {
             viewport={{ once: true, margin: '-80px' }}
             className="card overflow-hidden group"
           >
-            <div className="relative h-[300px] overflow-hidden">
+            <div className="relative h-[300px] overflow-hidden gradient-shift">
               <Image
                 src="/images/tours-kashmir.jpg"
                 alt="Discover India - Tour Packages"

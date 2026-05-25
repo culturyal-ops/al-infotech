@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function UmrahPackages() {
   const cardVariants = {
@@ -67,7 +69,7 @@ export default function UmrahPackages() {
             <div className="h-2 bg-green-muted" />
             <div className="p-8">
               <div className="flex flex-wrap gap-2 mb-4">
-                <div className="inline-block bg-green-muted text-green px-4 py-2 rounded-sm">
+                <div className="inline-block bg-green-muted text-green px-4 py-2 rounded-sm badge-glow">
                   <span className="font-marcellus text-[11px] tracking-widest uppercase">
                     NUSUK CERTIFIED
                   </span>
@@ -94,10 +96,24 @@ export default function UmrahPackages() {
                 <p className="label-small text-green mb-4">INCLUSIONS</p>
                 <ul className="space-y-3">
                   {budgetInclusions.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green flex-shrink-0 mt-0.5" />
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      className="flex items-start gap-3"
+                    >
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+                      >
+                        <Check className="w-5 h-5 text-green flex-shrink-0 mt-0.5" />
+                      </motion.div>
                       <span className="font-lato text-text">{item}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </div>
@@ -114,7 +130,7 @@ export default function UmrahPackages() {
             className="card overflow-hidden border-border-gold relative"
           >
             <div className="h-2 bg-gold" />
-            <div className="absolute top-6 right-6 bg-gold text-white px-4 py-2 rounded-sm">
+            <div className="absolute top-6 right-6 bg-gold text-white px-4 py-2 rounded-sm badge-premium">
               <span className="font-marcellus text-[10px] tracking-widest uppercase">
                 DIRECT FLIGHT
               </span>
@@ -136,10 +152,24 @@ export default function UmrahPackages() {
                 <p className="label-small text-green mb-4">INCLUSIONS</p>
                 <ul className="space-y-3">
                   {premiumInclusions.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green flex-shrink-0 mt-0.5" />
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      className="flex items-start gap-3"
+                    >
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+                      >
+                        <Check className="w-5 h-5 text-green flex-shrink-0 mt-0.5" />
+                      </motion.div>
                       <span className="font-lato text-text">{item}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </div>

@@ -1,8 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export default function KashmirPackage() {
+  const [selectedPricing, setSelectedPricing] = useState<number | null>(null);
   const pricingOptions = [
     { pax: '12 PAX', price: '₹7,400', vehicle: 'Tempo Traveller' },
     { pax: '10 PAX', price: '₹7,800', vehicle: 'Tempo Traveller' },
@@ -163,7 +165,10 @@ export default function KashmirPackage() {
                     delay: 0.3 + index * 0.05,
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
-                  className="card p-6 text-center hover:border-border-gold transition-all duration-300"
+                  onClick={() => setSelectedPricing(index)}
+                  className={`card p-6 text-center cursor-pointer transition-all duration-300 ${
+                    selectedPricing === index ? 'pricing-card-selected' : 'hover:border-border-gold'
+                  }`}
                 >
                   <p className="font-marcellus text-[11px] tracking-widest uppercase text-text-muted mb-3">
                     MIN {option.pax}
