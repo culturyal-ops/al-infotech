@@ -142,7 +142,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 bg-bg z-40 md:hidden overflow-y-auto"
           >
-            <div className="min-h-full flex flex-col items-center justify-center py-24 px-6">
+            <div className="min-h-full flex flex-col items-center justify-start pt-32 pb-24 px-6">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={index}
